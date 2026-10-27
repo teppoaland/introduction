@@ -25,11 +25,13 @@ assets/games/ai-chaos-street/   menu.jpg · street-night.jpg · closeup.jpg
                                 laser-shooting.jpg · morning-after.jpg
 assets/games/pimea-katu/        street.jpg · jukebox.jpg
 assets/tools/ai-tabtool/        pc-view.jpg · remote-play.jpg · remote-library.jpg
+assets/tools/flowcast/          admin-panel.png
 ```
 
-Kuvat on skaalattu niin, että pisin sivu on ≤ 1200 px ja JPEG-laatu 82–86
-(yhteensä ~0,9 MB). Alkuperäiset kuvakaappaukset ovat kansiossa `D:\App_img`
-eikä niitä ole repossa.
+Pelikuvat on skaalattu niin, että pisin sivu on ≤ 1200 px ja JPEG-laatu 82–86;
+UI-kuvakaappaus (FlowCast) pidetään PNG:nä, jotta pieni teksti pysyy terävänä.
+Kuvia on yhteensä ~0,95 MB. Alkuperäiset kuvakaappaukset ovat kansiossa
+`D:\App_img` eikä niitä ole repossa.
 
 **Kuvan lisääminen korttiin:**
 
