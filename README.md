@@ -115,6 +115,7 @@ ladata sivun avautuessa, joten sivu pysyy nopeana. Suora demo-linkki:
 
 | Toiminto | Miten |
 |---|---|
+| Kieli | `EN`/`FI`-kytkin yläpalkissa, `?lang=fi`, valinta muistetaan `localStorage`en |
 | Pikahaku | `/` tai `Ctrl`/`Cmd` + `K` |
 | Recruiter mode | nappi herosta tai `?mode=cv` |
 | Kopioi tiivistelmä | Recruiter moden nappi tai pikahaku |
@@ -123,6 +124,28 @@ ladata sivun avautuessa, joten sivu pysyy nopeana. Suora demo-linkki:
 | Kuvakaappaukset | klikkaus → lightbox; `←`/`→` selaa, `Esc` sulkee |
 | Ääni päälle/pois | footerin `♪`-nappi (WebAudio, oletuksena pois) |
 | Easter egg | Konami-koodi `↑↑↓↓←→←→BA` |
+
+## Kielet
+
+Sivu on **englanniksi oletuksena** ja suomeksi `FI`-kytkimellä (yläpalkki).
+Valinta tallentuu `localStorage`en ja on linkitettävissä: `?lang=fi` / `?lang=en`.
+
+Toteutus ilman duplikaattisivuja:
+
+- Englanninkielinen teksti on HTML:ssä (SEO + toimii ilman JS:ää).
+- Jokainen käännettävä elementti kantaa suomenkielisen tekstin
+  `data-fi="…"`-attribuutissa.
+- `applyLang()` vaihtaa sisällön, päivittää `<html lang>`-arvon ja sivun otsikon.
+- Dynaamiset tekstit (toastit, testiajon tila, pikahaun lajit) ovat `I18N`-sanakirjassa.
+
+**Uutta tekstiä lisätessäsi:** kirjoita englanti elementin sisään ja suomi
+`data-fi`-attribuuttiin, esim.
+
+```html
+<p data-fi="Suomeksi tässä">In English here</p>
+```
+
+Kuvien `alt`-tekstit ja `aria-label`-tekstit ovat englanniksi (ei vaihdu kielen mukana).
 
 ## Saavutettavuus ja suorituskyky
 

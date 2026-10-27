@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="fi">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Teppo Ålander — Pelit, hyötyohjelmat ja testausautomaatio</title>
-  <meta name="description" content="Portfolio: HTML5-selainpelit, hyötyohjelmat ja testausautomaation PoC:t. Pelattavissa suoraan selaimessa — ei latauksia, ei asennuksia.">
+  <title data-fi="Teppo Ålander — Pelit, hyötyohjelmat ja testausautomaatio">Teppo Ålander — Browser games, tools &amp; test automation</title>
+  <meta name="description" content="Portfolio: HTML5 browser games, practical tools and test automation PoCs. Playable straight in the browser — no downloads, no installs.">
   <meta name="author" content="Teppo Ålander">
   <meta name="theme-color" content="#050508">
   <meta name="color-scheme" content="dark">
@@ -200,6 +200,34 @@
     }
 
     .nav a:hover, .nav a:focus-visible { color: var(--neon); background: rgba(0, 229, 255, .07); }
+
+    /* ── Language switch ────────────────────────────────────────────────── */
+    .lang {
+      display: inline-flex;
+      border: 1px solid rgba(139, 139, 163, .4);
+      border-radius: 6px;
+      overflow: hidden;
+      margin-left: 4px;
+    }
+
+    .lang button {
+      font-family: var(--mono);
+      font-size: .72rem;
+      letter-spacing: .12em;
+      padding: 0 10px;
+      min-height: 34px;
+      background: transparent;
+      color: var(--muted);
+      border: 0;
+      cursor: pointer;
+    }
+
+    .lang button:hover { color: #fff; }
+
+    .lang button[aria-pressed="true"] {
+      background: rgba(0, 229, 255, .16);
+      color: var(--neon);
+    }
 
     .hero { padding: clamp(44px, 8vw, 96px) 0 clamp(28px, 5vw, 56px); position: relative; }
 
@@ -679,7 +707,7 @@
   <div class="crt-noise decor" aria-hidden="true"></div>
 
   <!-- Käynnistysruutu -->
-  <div id="boot" role="dialog" aria-modal="true" aria-label="Käynnistys">
+  <div id="boot" role="dialog" aria-modal="true" aria-label="Boot">
     <div class="boot-inner">
       <pre id="boot-log"></pre>
       <p class="press">[ PRESS ANY KEY / KLIKKAA ]</p>
@@ -689,13 +717,17 @@
   <header class="site-head">
     <div class="wrap bar">
       <a class="brand" href="#top"><span class="dot" aria-hidden="true"></span>TEPPO<span class="muted">.</span>ALANDER</a>
-      <nav class="nav" aria-label="Päävalikko">
-        <a href="#pelit">Pelit</a>
-        <a href="#tyokalut">Hyötyohjelmat</a>
-        <a href="#qa">QA</a>
+      <nav class="nav" aria-label="Main menu">
+        <a href="#pelit" data-fi="Pelit">Games</a>
+        <a href="#tyokalut" data-fi="Hyötyohjelmat">Tools</a>
+        <a href="#qa" data-fi="QA">QA</a>
         <a href="#stack">Stack</a>
-        <a href="#yhteys">Yhteys</a>
-        <button class="btn small ghost" type="button" data-action="palette" aria-haspopup="dialog">/ Haku</button>
+        <a href="#yhteys" data-fi="Yhteys">Contact</a>
+        <div class="lang" role="group" aria-label="Language / Kieli">
+          <button type="button" data-setlang="en" aria-pressed="true">EN</button>
+          <button type="button" data-setlang="fi" aria-pressed="false">FI</button>
+        </div>
+        <button class="btn small ghost" type="button" data-action="palette" aria-haspopup="dialog" data-fi="/ Haku">/ Search</button>
       </nav>
     </div>
   </header>
@@ -704,12 +736,12 @@
     <section class="hero wrap" id="top">
       <p class="eyebrow">Portfolio · 2026 · teppoaland.github.io</p>
       <h1>Teppo <span class="thin">Ålander</span></h1>
-      <p class="role">Ohjelmistokehitys · Testausautomaatio · HTML5-pelit</p>
-      <p class="lead">
-        Rakennan selaimessa heti toimivia pelejä, käytännön hyötyohjelmia ja testausautomaation
-        PoC:eja. Pelit on optimoitu PC-, Mac-, Android- ja iOS-selaimiin: näppäimistö työpöydällä,
-        kosketusohjaimet puhelimessa. Kaikki tällä sivulla on omaa käsialaani: vanilla-JS ja CSS
-        ilman frameworkkeja, Python-palvelimet sekä QA-putket Appiumista Azure DevOpsiin.
+      <p class="role" data-fi="Ohjelmistokehitys · Testausautomaatio · HTML5-pelit">Software development · Test automation · HTML5 games</p>
+      <p class="lead" data-fi="Rakennan selaimessa heti toimivia pelejä, käytännön hyötyohjelmia ja testausautomaation PoC:eja. Pelit on optimoitu PC-, Mac-, Android- ja iOS-selaimiin: näppäimistö työpöydällä, kosketusohjaimet puhelimessa. Kaikki tällä sivulla on omaa käsialaani: vanilla-JS ja CSS ilman frameworkkeja, Python-palvelimet sekä QA-putket Appiumista Azure DevOpsiin.">
+        I build browser games you can play instantly, practical tools and test automation PoCs.
+        The games are optimised for PC, Mac, Android and iOS browsers — keyboard on desktop,
+        touch controls on phones. Everything here is my own work: vanilla JS and CSS without
+        frameworks, Python services and QA pipelines from Appium to Azure DevOps.
       </p>
       <p class="ticker" aria-label="Aktiiviset projektit">
         <span><b>● LIVE</b> GAME HUB 10.05</span>
@@ -717,174 +749,174 @@
         <span><b>● LIVE</b> TEST RADIATOR v5</span>
         <span>FLOWCAST 10.02</span>
         <span>AI TABTOOL 2.23</span>
-        <span>SELAIN: PC · MAC · ANDROID · iOS</span>
+        <span data-fi="SELAIN: PC · MAC · ANDROID · iOS">BROWSER: PC · MAC · ANDROID · iOS</span>
       </p>
       <div class="cta-row">
-        <a class="btn primary" href="#pelit">▶ Pelaa nyt</a>
-        <a class="btn" href="https://github.com/teppoaland" target="_blank" rel="noopener">▣ Katso koodi</a>
+        <a class="btn primary" href="#pelit" data-fi="▶ Pelaa nyt">▶ Play now</a>
+        <a class="btn" href="https://github.com/teppoaland" target="_blank" rel="noopener" data-fi="▣ Katso koodi">▣ View code</a>
         <a class="btn magenta" href="https://fi.linkedin.com/in/teppo-%C3%A5lander-5367b03" target="_blank" rel="noopener">⚡ LinkedIn</a>
         <button class="btn ghost small" type="button" data-action="cv">Recruiter mode</button>
-        <span class="muted mono" style="font-size:.72rem;letter-spacing:.12em;">[ / ] haku · [ ↑↑↓↓←→←→BA ] ?</span>
+        <span class="muted mono" style="font-size:.72rem;letter-spacing:.12em;" data-fi="[ / ] haku · [ ↑↑↓↓←→←→BA ] ?">[ / ] search · [ ↑↑↓↓←→←→BA ] ?</span>
       </div>
     </section>
 
     <section class="section wrap cv-only" id="cv" aria-labelledby="cv-title">
-      <h2 id="cv-title" class="eyebrow">Tiivistelmä rekrytoijalle</h2>
+      <h2 id="cv-title" class="eyebrow" data-fi="Tiivistelmä rekrytoijalle">Recruiter summary</h2>
       <div class="cv-box">
-        <h3>Profiili</h3>
+        <h3 data-fi="Profiili">Profile</h3>
         <ul>
-          <li>Ohjelmistokehitys ja testausautomaatio: Python (Flask, FastAPI, pytest), Robot Framework, Appium, Allure, GitHub Actions, Azure DevOps.</li>
-          <li>Front-end: HTML5, CSS Grid/Flex, vanilla JavaScript, Canvas, WebAudio — ei frameworkkeja, ei build-vaihetta.</li>
-          <li>Osoitus: kolme julkaistua selainpeliä, kaksi paikallista hyötyohjelmaa ja neljä testausautomaation PoC:ta julkisessa GitHissa.</li>
+          <li data-fi="Ohjelmistokehitys ja testausautomaatio: Python (Flask, FastAPI, pytest), Robot Framework, Appium, Allure, GitHub Actions, Azure DevOps.">Software development and test automation: Python (Flask, FastAPI, pytest), Robot Framework, Appium, Allure, GitHub Actions, Azure DevOps.</li>
+          <li data-fi="Front-end: HTML5, CSS Grid/Flex, vanilla JavaScript, Canvas, WebAudio — ei frameworkkeja, ei build-vaihetta.">Front-end: HTML5, CSS Grid/Flex, vanilla JavaScript, Canvas, WebAudio — no frameworks, no build step.</li>
+          <li data-fi="Osoitus: kolme julkaistua selainpeliä, kaksi paikallista hyötyohjelmaa ja neljä testausautomaation PoC:ta julkisessa GitHissa.">Evidence: three published browser games, two local tools and four test automation PoCs in public GitHub.</li>
         </ul>
-        <p class="muted" style="margin:12px 0 0;font-size:.84rem;">Koko tiivistelmä kopioitavissa napista — yksityiskohdat alempana.</p>
+        <p class="muted" style="margin:12px 0 0;font-size:.84rem;" data-fi="Koko tiivistelmä kopioitavissa napista — yksityiskohdat alempana.">The full summary can be copied with the button — details below.</p>
       </div>
-      <button class="btn small" type="button" data-action="copy-summary">Kopioi yhteenveto</button>
+      <button class="btn small" type="button" data-action="copy-summary" data-fi="Kopioi yhteenveto">Copy summary</button>
     </section>
 
     <section class="section wrap" id="valitse" aria-labelledby="valitse-title">
       <div class="section-head">
-        <h2 id="valitse-title">Valitse polku</h2>
-        <p>Kolme kategoriaa — klikkaus vie suoraan sisältöön.</p>
+        <h2 id="valitse-title" data-fi="Valitse polku">Choose a path</h2>
+        <p data-fi="Kolme kategoriaa — klikkaus vie suoraan sisältöön.">Three categories — one click takes you straight there.</p>
       </div>
       <div class="shelf">
         <button class="cart" type="button" data-goto="#pelit">
           <span class="ico" aria-hidden="true">🎮</span>
-          <h3>Pelit</h3>
-          <p>Kolme peliä, pelattavissa heti selaimessa — ei latauksia, ei asennuksia.</p>
-          <span class="go">PELAA →</span>
+          <h3 data-fi="Pelit">Games</h3>
+          <p data-fi="Kolme peliä, pelattavissa heti selaimessa — ei latauksia, ei asennuksia.">Three games, playable instantly in the browser — no downloads, no installs.</p>
+          <span class="go" data-fi="PELAA →">PLAY →</span>
         </button>
         <button class="cart" type="button" data-goto="#tyokalut">
           <span class="ico" aria-hidden="true">🛠</span>
-          <h3>Hyötyohjelmat</h3>
-          <p>FlowCast (info-TV ja mediasoitin) sekä AI TabTool (tablatuurit ja ML).</p>
-          <span class="go">TUTUSTU →</span>
+          <h3 data-fi="Hyötyohjelmat">Tools</h3>
+          <p data-fi="FlowCast (info-TV ja mediasoitin) sekä AI TabTool (tablatuurit ja ML).">FlowCast (info TV and media player) and AI TabTool (tabs and machine learning).</p>
+          <span class="go" data-fi="TUTUSTU →">EXPLORE →</span>
         </button>
         <button class="cart" type="button" data-goto="#qa">
           <span class="ico" aria-hidden="true">🧪</span>
-          <h3>QA &amp; automaatio</h3>
-          <p>Appium, Robot Framework, Allure, Azure DevOps — ja elävä testidashboard.</p>
-          <span class="go">KATSO →</span>
+          <h3 data-fi="QA &amp; automaatio">QA &amp; automation</h3>
+          <p data-fi="Appium, Robot Framework, Allure, Azure DevOps — ja elävä testidashboard.">Appium, Robot Framework, Allure, Azure DevOps — and a live test dashboard.</p>
+          <span class="go" data-fi="KATSO →">VIEW →</span>
         </button>
       </div>
     </section>
     <section class="section wrap" id="pelit" aria-labelledby="pelit-title">
       <div class="section-head">
-        <h2 id="pelit-title">🎮 Pelit</h2>
-        <span class="count">03 kpl · kaikki pelattavissa</span>
-        <p>Selainpelejä ilman asennuksia: sama peli toimii PC:llä, Macilla, Androidilla ja iOS:llä. Näppäimistö työpöydällä, kosketusohjaimet puhelimessa — klikkaa ja pelaa.</p>
+        <h2 id="pelit-title" data-fi="🎮 Pelit">🎮 Games</h2>
+        <span class="count" data-fi="03 kpl · kaikki pelattavissa">03 · all playable</span>
+        <p data-fi="Selainpelejä ilman asennuksia: sama peli toimii PC:llä, Macilla, Androidilla ja iOS:llä. Näppäimistö työpöydällä, kosketusohjaimet puhelimessa — klikkaa ja pelaa.">Browser games with nothing to install: the same build runs on PC, Mac, Android and iOS. Keyboard on desktop, touch controls on phones — click and play.</p>
       </div>
 
       <div class="grid">
         <article class="card reveal" id="gamehub">
-          <div class="meta"><span class="tag live">LIVE</span><span>v10.05</span><span>5 peliä</span></div>
+          <div class="meta"><span class="tag live">LIVE</span><span>v10.05</span><span data-fi="5 peliä">5 games</span></div>
           <h3>Game Hub</h3>
-          <p class="desc">Keskusvalikko viidelle minipelille: Blue Mäx, Dig Game, Dig Däsh, Battleship ja Fruit Machine — sekä jukebox ilman kolikoita.</p>
-          <div class="shots" role="group" aria-label="Kuvakaappaukset: Game Hub">
-            <button class="shot tall" type="button" data-cap="Game Hub – päävalikko">
-              <img src="assets/games/game-hub/menu.jpg" width="826" height="927" loading="lazy" decoding="async" alt="Game Hub -päävalikko: viisi peliä listattuna (Blue Mäx, Dig Game, Dig Däsh, Battleship, Fruit Machine) sekä jukebox-linkki">
-              <span class="cap">Valikko</span>
+          <p class="desc" data-fi="Keskusvalikko viidelle minipelille: Blue Mäx, Dig Game, Dig Däsh, Battleship ja Fruit Machine — sekä jukebox ilman kolikoita.">Central hub for five mini-games: Blue Mäx, Dig Game, Dig Däsh, Battleship and Fruit Machine — plus a jukebox that costs nothing.</p>
+          <div class="shots" role="group" aria-label="Screenshots: Game Hub">
+            <button class="shot tall" type="button">
+              <img src="assets/games/game-hub/menu.jpg" width="826" height="927" loading="lazy" decoding="async" alt="Game Hub main menu: five games listed (Blue Mäx, Dig Game, Dig Däsh, Battleship, Fruit Machine) and a jukebox link">
+              <span class="cap" data-fi="Valikko">Menu</span>
             </button>
-            <button class="shot" type="button" data-cap="Blue Mäx – aloitusruutu">
-              <img src="assets/games/game-hub/blue-max-menu.jpg" width="1200" height="540" loading="lazy" decoding="async" alt="Blue Mäx -pelin aloitusruutu puhelimessa: pelin nimi ja ohjeet (nuolet liikkumiseen, välilyönti pommiin, automaattinen kk-tuli)">
+            <button class="shot" type="button">
+              <img src="assets/games/game-hub/blue-max-menu.jpg" width="1200" height="540" loading="lazy" decoding="async" alt="Blue Mäx start screen on a phone: game title and instructions (arrows to fly, space to bomb, automatic machine-gun fire)">
               <span class="cap">Blue Mäx</span>
             </button>
-            <button class="shot" type="button" data-cap="Blue Mäx – pelitilanne">
-              <img src="assets/games/game-hub/blue-max-game.jpg" width="1200" height="540" loading="lazy" decoding="async" alt="Blue Mäx -pelin pelitilanne: lentokone, pommi- ja asevalinnat sekä virtuaaliset ohjauspainikkeet">
-              <span class="cap">Pelitilanne</span>
+            <button class="shot" type="button">
+              <img src="assets/games/game-hub/blue-max-game.jpg" width="1200" height="540" loading="lazy" decoding="async" alt="Blue Mäx gameplay: plane, bomb and weapon selection and on-screen directional controls">
+              <span class="cap" data-fi="Pelitilanne">Gameplay</span>
             </button>
-            <button class="shot tall" type="button" data-cap="Dig Game – yksi suuri kaivumaailma">
-              <img src="assets/games/game-hub/dig-game.jpg" width="540" height="1200" loading="lazy" decoding="async" alt="Dig Game -peli puhelimessa: kaivettava kenttä, timantteja ja kiviä, yläpalkissa matka, pisteet, elämät ja kolikot">
+            <button class="shot tall" type="button">
+              <img src="assets/games/game-hub/dig-game.jpg" width="540" height="1200" loading="lazy" decoding="async" alt="Dig Game on a phone: diggable tile world with diamonds and rocks, top bar showing journey, score, lives and coins">
               <span class="cap">Dig Game</span>
             </button>
-            <button class="shot tall" type="button" data-cap="Boulder Däsh – neljä tasoa, timanttitavoitteet">
-              <img src="assets/games/game-hub/boulder-dash.jpg" width="778" height="1200" loading="lazy" decoding="async" alt="Boulder Däsh -peli: tason 1 kenttä timantteineen, tavoite 5, pisteet ja elämät näkyvissä">
+            <button class="shot tall" type="button">
+              <img src="assets/games/game-hub/boulder-dash.jpg" width="778" height="1200" loading="lazy" decoding="async" alt="Boulder Däsh level 1: tile cave with diamonds, target 5, score and lives visible">
               <span class="cap">Boulder Däsh</span>
             </button>
-            <button class="shot tall" type="button" data-cap="Fruit Machine – hedelmäpeli ja ilmaiskierros">
-              <img src="assets/games/game-hub/fruit-machine.jpg" width="540" height="1200" loading="lazy" decoding="async" alt="Fruit Machine -hedelmäpeli: kolme rullaa, kertoimet ja ilmoitus ilmaiskierroksesta, alhaalla SPIN-painike">
+            <button class="shot tall" type="button">
+              <img src="assets/games/game-hub/fruit-machine.jpg" width="540" height="1200" loading="lazy" decoding="async" alt="Fruit Machine: three reels, prize multipliers, a free spin banner and a SPIN button">
               <span class="cap">Fruit Machine</span>
             </button>
           </div>
           <ul class="shows">
-            <li>Pelit käynnistyvät iframessa ja palaavat hubiin <code>postMessage</code>-viestillä.</li>
-            <li>Kukkaro, jono ja asetukset säilyvät <code>localStorage</code>ssa.</li>
-            <li>Optimoitu selainpeli: näppäimistö PC:llä, kosketusohjaimet puhelimessa.</li>
+            <li data-fi="Pelit käynnistyvät iframessa ja palaavat hubiin postMessage-viestillä.">Games launch in an iframe and return to the hub with a <code>postMessage</code>.</li>
+            <li data-fi="Kukkaro, jono ja asetukset säilyvät localStoragessa.">Wallet, playlist and settings persist in <code>localStorage</code>.</li>
+            <li data-fi="Optimoitu selainpeli: näppäimistö PC:llä, kosketusohjaimet puhelimessa.">Built for the browser: keyboard on desktop, touch controls on phones.</li>
           </ul>
-          <ul class="chips"><li>vanilla JS</li><li>Canvas</li><li>postMessage</li><li>localStorage</li><li>kosketusohjaus</li><li>GitHub Pages</li></ul>
+          <ul class="chips"><li>vanilla JS</li><li>Canvas</li><li>postMessage</li><li>localStorage</li><li data-fi="kosketusohjaus">touch controls</li><li>GitHub Pages</li></ul>
           <div class="actions">
-            <button class="btn small primary" type="button" data-demo="gamehub">▶ Pelaa tässä</button>
-            <a class="btn small" href="https://teppoaland.github.io/gamehub/" target="_blank" rel="noopener">↗ Uusi välilehti</a>
-            <a class="btn small ghost" href="https://github.com/teppoaland/gamehub" target="_blank" rel="noopener">Koodi</a>
-            <button class="btn small ghost" type="button" data-copy="#gamehub" aria-label="Kopioi linkki tähän projektiin">⧉</button>
+            <button class="btn small primary" type="button" data-demo="gamehub" data-fi="▶ Pelaa tässä">▶ Play here</button>
+            <a class="btn small" href="https://teppoaland.github.io/gamehub/" target="_blank" rel="noopener" data-fi="↗ Uusi välilehti">↗ New tab</a>
+            <a class="btn small ghost" href="https://github.com/teppoaland/gamehub" target="_blank" rel="noopener" data-fi="Koodi">Code</a>
+            <button class="btn small ghost" type="button" data-copy="#gamehub" aria-label="Copy link to this project">⧉</button>
           </div>
         </article>
 
         <article class="card reveal" id="aistreet">
-          <div class="meta"><span class="tag live">LIVE</span><span>v11.72</span><span>5 kaaostasoa</span></div>
+          <div class="meta"><span class="tag live">LIVE</span><span>v11.72</span><span data-fi="5 kaaostasoa">5 chaos levels</span></div>
           <h3>AI Chaos Street</h3>
-          <p class="desc">Katusekoilu: liiku, potki ovia, kerää kolikot ja löydä avaimet. Muista myös syödä — muuten käy huonosti kesken pelin.</p>
-          <div class="shots" role="group" aria-label="Kuvakaappaukset: AI Chaos Street">
-            <button class="shot" type="button" data-cap="Mobiili – kosketusohjaimet ja aamuinen katu">
-              <img src="assets/games/ai-chaos-street/morning-after.jpg" width="1200" height="540" loading="lazy" decoding="async" alt="AI Chaos Street puhelimen selaimessa: virtuaaliset nuolipainikkeet ruudun reunoilla, harmaa aamuinen katu ja versioteksti v11.26">
-              <span class="cap">Mobiili</span>
+          <p class="desc" data-fi="Katusekoilu: liiku, potki ovia, kerää kolikot ja löydä avaimet. Muista myös syödä — muuten käy huonosti kesken pelin.">Street chaos: walk, kick doors, collect coins and find the keys. Remember to eat too — otherwise things go badly mid-game.</p>
+          <div class="shots" role="group" aria-label="Screenshots: AI Chaos Street">
+            <button class="shot" type="button">
+              <img src="assets/games/ai-chaos-street/morning-after.jpg" width="1200" height="540" loading="lazy" decoding="async" alt="AI Chaos Street in a phone browser: on-screen arrow buttons at the edges, grey morning street and version label v11.26">
+              <span class="cap" data-fi="Mobiili">Mobile</span>
             </button>
-            <button class="shot tall" type="button" data-cap="AI Chaos Street – kaaostason valinta">
-              <img src="assets/games/ai-chaos-street/menu.jpg" width="1037" height="1200" loading="lazy" decoding="async" alt="AI Chaos Street -valikko: viisi kaaostasoa (No Chaos, Mild, Good, Bad, Full Chaos)">
-              <span class="cap">Kaaostaso</span>
+            <button class="shot tall" type="button">
+              <img src="assets/games/ai-chaos-street/menu.jpg" width="1037" height="1200" loading="lazy" decoding="async" alt="AI Chaos Street menu: five chaos levels (No Chaos, Mild, Good, Bad, Full Chaos)">
+              <span class="cap" data-fi="Kaaostaso">Chaos level</span>
             </button>
-            <button class="shot" type="button" data-cap="Laserammunta – kolikot ja avaimet">
-              <img src="assets/games/ai-chaos-street/laser-shooting.jpg" width="1200" height="632" loading="lazy" decoding="async" alt="Pelitilanne: pelaaja ampuu laseria yökatua pitkin, yläpalkissa avaimet 0/3 ja kolikoita 34">
+            <button class="shot" type="button">
+              <img src="assets/games/ai-chaos-street/laser-shooting.jpg" width="1200" height="632" loading="lazy" decoding="async" alt="Gameplay: the player fires a laser across the night street, top bar shows keys 0/3 and coins 34">
               <span class="cap">Laser</span>
             </button>
-            <button class="shot tall" type="button" data-cap="Lähikuva – hahmo ja BAR">
-              <img src="assets/games/ai-chaos-street/closeup.jpg" width="1024" height="1028" loading="lazy" decoding="async" alt="Lähikuva pelikadusta: pikselihahmo seisoo BAR-kyltin edessä, taustalla kuu ja valaistuja ikkunoita">
-              <span class="cap">Lähikuva</span>
+            <button class="shot tall" type="button">
+              <img src="assets/games/ai-chaos-street/closeup.jpg" width="1024" height="1028" loading="lazy" decoding="async" alt="Close-up of the game street: a pixel character stands in front of the BAR sign, moon and lit windows behind">
+              <span class="cap" data-fi="Lähikuva">Close-up</span>
             </button>
-            <button class="shot" type="button" data-cap="Yökatu – tunnelma">
-              <img src="assets/games/ai-chaos-street/street-night.jpg" width="1200" height="598" loading="lazy" decoding="async" alt="Yöllinen pelikatu: täysikuu, katulamput ja neonkyltit BAR ja JUKEBOX">
-              <span class="cap">Yökatu</span>
+            <button class="shot" type="button">
+              <img src="assets/games/ai-chaos-street/street-night.jpg" width="1200" height="598" loading="lazy" decoding="async" alt="Night street atmosphere: full moon, street lamps and neon signs BAR and JUKEBOX">
+              <span class="cap" data-fi="Yökatu">Night street</span>
             </button>
           </div>
           <ul class="shows">
-            <li>Viisi kaaostasoa arpovat sään, liikenteen ja vuorokauden.</li>
-            <li>Minipelit, jukebox ja hamburger-mittari samassa pelitilassa.</li>
-            <li>Sama versio PC:llä ja puhelimessa — kosketusohjaimet mobiilissa.</li>
+            <li data-fi="Viisi kaaostasoa arpovat sään, liikenteen ja vuorokauden.">Five chaos levels randomise weather, traffic and time of day.</li>
+            <li data-fi="Minipelit, jukebox ja hamburger-mittari samassa pelitilassa.">Mini-games, jukebox and a hunger meter in one game state.</li>
+            <li data-fi="Sama versio PC:llä ja puhelimessa — kosketusohjaimet mobiilissa.">Same build on desktop and phone — touch controls on mobile.</li>
           </ul>
-          <ul class="chips"><li>Canvas</li><li>WebAudio</li><li>game state</li><li>CRT-teema</li><li>kosketusohjaus</li></ul>
+          <ul class="chips"><li>Canvas</li><li>WebAudio</li><li>game state</li><li>CRT theme</li><li data-fi="kosketusohjaus">touch controls</li></ul>
           <div class="actions">
-            <button class="btn small primary" type="button" data-demo="aistreet">▶ Pelaa tässä</button>
-            <a class="btn small" href="https://teppoaland.github.io/aistreet/" target="_blank" rel="noopener">↗ Uusi välilehti</a>
-            <a class="btn small ghost" href="https://github.com/teppoaland/aistreet" target="_blank" rel="noopener">Koodi</a>
-            <button class="btn small ghost" type="button" data-copy="#aistreet" aria-label="Kopioi linkki tähän projektiin">⧉</button>
+            <button class="btn small primary" type="button" data-demo="aistreet" data-fi="▶ Pelaa tässä">▶ Play here</button>
+            <a class="btn small" href="https://teppoaland.github.io/aistreet/" target="_blank" rel="noopener" data-fi="↗ Uusi välilehti">↗ New tab</a>
+            <a class="btn small ghost" href="https://github.com/teppoaland/aistreet" target="_blank" rel="noopener" data-fi="Koodi">Code</a>
+            <button class="btn small ghost" type="button" data-copy="#aistreet" aria-label="Copy link to this project">⧉</button>
           </div>
         </article>
 
         <article class="card reveal" id="pimeakatu">
-          <div class="meta"><span class="tag live">LIVE</span><span>v5.02</span><span>yöteema</span></div>
+          <div class="meta"><span class="tag live">LIVE</span><span>v5.02</span><span data-fi="yöteema">night theme</span></div>
           <h3>Pimeä Katu</h3>
-          <p class="desc">AI Chaos Streetin sisarversio: rauhallisempi yöportaali, jossa minipelit, jukebox ja kolikkotalous samassa valikossa.</p>
-          <div class="shots" role="group" aria-label="Kuvakaappaukset: Pimeä Katu">
-            <button class="shot" type="button" data-cap="Pimeä Katu – pelitilanne yöllä">
-              <img src="assets/games/pimea-katu/street.jpg" width="1200" height="629" loading="lazy" decoding="async" alt="Pimeä Katu -pelitilanne: yöllinen katu täysikuun alla, BAR- ja JUKEBOX-neonit, hahmo ja linja-auto; yläpalkissa avaimet 0/3 ja kolikoita 2">
-              <span class="cap">Pelitilanne</span>
+          <p class="desc" data-fi="AI Chaos Streetin sisarversio: rauhallisempi yöportaali, jossa minipelit, jukebox ja kolikkotalous samassa valikossa.">Sister build of AI Chaos Street: a calmer night-time portal where mini-games, jukebox and coin economy live in one menu.</p>
+          <div class="shots" role="group" aria-label="Screenshots: Pimeä Katu">
+            <button class="shot" type="button">
+              <img src="assets/games/pimea-katu/street.jpg" width="1200" height="629" loading="lazy" decoding="async" alt="Pimeä Katu gameplay: night street under a full moon, BAR and JUKEBOX neon signs, character and a bus; top bar shows keys 0/3 and 2 coins">
+              <span class="cap" data-fi="Pelitilanne">Gameplay</span>
             </button>
-            <button class="shot tall" type="button" data-cap="Jukebox – kappalevalinta ja kolikot">
-              <img src="assets/games/pimea-katu/jukebox.jpg" width="792" height="1200" loading="lazy" decoding="async" alt="Jukebox-näkymä puhelimessa: kappalelista hintoineen, kolikkotili ja poistumisohje">
+            <button class="shot tall" type="button">
+              <img src="assets/games/pimea-katu/jukebox.jpg" width="792" height="1200" loading="lazy" decoding="async" alt="Jukebox view on a phone: track list with coin prices, coin balance and exit hint">
               <span class="cap">Jukebox</span>
             </button>
           </div>
           <ul class="shows">
-            <li>Sama koodipohja kuin AI Chaos Streetissä, eri ilme ja tunnelma.</li>
-            <li>Jukebox: vapaa musiikinvalinta, valittu jono soi myös pelien aikana.</li>
-            <li>Kosketusohjaimet mobiilissa, näppäimistö PC:llä — ei asennuksia.</li>
+            <li data-fi="Sama koodipohja kuin AI Chaos Streetissä, eri ilme ja tunnelma.">Same codebase as AI Chaos Street, different look and mood.</li>
+            <li data-fi="Jukebox: vapaa musiikinvalinta, valittu jono soi myös pelien aikana.">Jukebox: pick any track, the queue keeps playing during games.</li>
+            <li data-fi="Kosketusohjaimet mobiilissa, näppäimistö PC:llä — ei asennuksia.">Touch controls on mobile, keyboard on desktop — no installs.</li>
           </ul>
-          <ul class="chips"><li>Canvas</li><li>jukebox</li><li>teemoitus</li><li>kosketusohjaus</li><li>GitHub Pages</li></ul>
+          <ul class="chips"><li>Canvas</li><li>jukebox</li><li data-fi="teemoitus">theming</li><li data-fi="kosketusohjaus">touch controls</li><li>GitHub Pages</li></ul>
           <div class="actions">
-            <button class="btn small primary" type="button" data-demo="pimeakatu">▶ Pelaa tässä</button>
-            <a class="btn small" href="https://teppoaland.github.io/pimeakatu/" target="_blank" rel="noopener">↗ Uusi välilehti</a>
-            <a class="btn small ghost" href="https://github.com/teppoaland/pimeakatu" target="_blank" rel="noopener">Koodi</a>
-            <button class="btn small ghost" type="button" data-copy="#pimeakatu" aria-label="Kopioi linkki tähän projektiin">⧉</button>
+            <button class="btn small primary" type="button" data-demo="pimeakatu" data-fi="▶ Pelaa tässä">▶ Play here</button>
+            <a class="btn small" href="https://teppoaland.github.io/pimeakatu/" target="_blank" rel="noopener" data-fi="↗ Uusi välilehti">↗ New tab</a>
+            <a class="btn small ghost" href="https://github.com/teppoaland/pimeakatu" target="_blank" rel="noopener" data-fi="Koodi">Code</a>
+            <button class="btn small ghost" type="button" data-copy="#pimeakatu" aria-label="Copy link to this project">⧉</button>
           </div>
         </article>
       </div>
@@ -892,182 +924,182 @@
       <div class="stage" id="stage">
         <div class="stage-bar">
           <span class="leds" aria-hidden="true"><i class="on"></i><i></i><i></i></span>
-          <span>Pelilava</span>
-          <span class="muted" id="stage-name">— valitse peli</span>
+          <span data-fi="Pelilava">Demo stage</span>
+          <span class="muted" id="stage-name" data-en="— pick a game" data-fi="— valitse peli">— pick a game</span>
           <span class="muted" id="stage-note" style="margin-left:auto;"></span>
         </div>
         <div class="stage-body" id="stage-body">
           <div class="stage-idle">
-            <p class="big">Valitse peli ylhäältä</p>
-            <p>Peli ladataan tähän vain klikkauksesta, joten sivu avautuu nopeasti myös puhelimella. Voit aina avata pelin myös omassa välilehdessään.</p>
-            <a class="btn small" href="#gamehub">Siirry pelikortteihin ↑</a>
+            <p class="big" data-fi="Valitse peli ylhäältä">Pick a game above</p>
+            <p data-fi="Peli ladataan tähän vain klikkauksesta, joten sivu avautuu nopeasti myös puhelimella. Voit aina avata pelin myös omassa välilehdessään.">A game loads here only when you click, so the page stays fast on mobile. You can always open it in its own tab.</p>
+            <a class="btn small" href="#gamehub" data-fi="Siirry pelikortteihin ↑">Back to the game cards ↑</a>
           </div>
         </div>
       </div>
     </section>
     <section class="section wrap" id="tyokalut" aria-labelledby="tyokalut-title">
       <div class="section-head">
-        <h2 id="tyokalut-title">🛠 Hyötyohjelmat</h2>
-        <span class="count">02 kpl · paikallisia palveluita</span>
-        <p>Omaan käyttöön rakennettuja sovelluksia, joissa yhdistyvät palvelin, media ja tekoäly. Molemmat ovat julkisessa GitHissa — ajo vaatii oman koneen.</p>
+        <h2 id="tyokalut-title" data-fi="🛠 Hyötyohjelmat">🛠 Tools</h2>
+        <span class="count" data-fi="02 kpl · paikallisia palveluita">02 · local services</span>
+        <p data-fi="Omaan käyttöön rakennettuja sovelluksia, joissa yhdistyvät palvelin, media ja tekoäly. Molemmat ovat julkisessa GitHissa — ajo vaatii oman koneen.">Applications built for real use, where server, media and machine learning meet. Both are public on GitHub — running them requires your own machine.</p>
       </div>
 
       <div class="grid">
         <article class="card reveal" id="flowcast">
-          <div class="meta"><span class="tag local">PAIKALLINEN</span><span>v10.02</span><span>Python + Android</span></div>
+          <div class="meta"><span class="tag local" data-fi="PAIKALLINEN">LOCAL</span><span>v10.02</span><span>Python + Android</span></div>
           <h3>FlowCast</h3>
-          <p class="desc">24/7 info-TV ja mediasoitin sisäverkkoon: kuvat, videot ja URL-sisältö samaan feediin millä tahansa selaimellisella laitteella.</p>
-          <div class="shots" role="group" aria-label="Kuvakaappaukset: FlowCast">
-            <button class="shot" type="button" data-cap="Näyttönäkymä PC:n selaimessa (/display)">
-              <img src="assets/tools/flowcast/display-pc.jpg" width="1095" height="814" loading="lazy" decoding="async" alt="FlowCastin näyttönäkymä PC:n selaimessa: kuva täyttää ruudun, alareunassa tiedostonimi ja toistopainikkeet">
-              <span class="cap">Näyttö PC</span>
+          <p class="desc" data-fi="24/7 info-TV ja mediasoitin sisäverkkoon: kuvat, videot ja URL-sisältö samaan feediin millä tahansa selaimellisella laitteella.">24/7 info TV and media player for a local network: images, videos and URL content in one feed on any browser-capable device.</p>
+          <div class="shots" role="group" aria-label="Screenshots: FlowCast">
+            <button class="shot" type="button">
+              <img src="assets/tools/flowcast/display-pc.jpg" width="1095" height="814" loading="lazy" decoding="async" alt="FlowCast display view in a desktop browser: the image fills the screen, file name and playback buttons at the bottom">
+              <span class="cap" data-fi="Näyttö PC">Display PC</span>
             </button>
-            <button class="shot" type="button" data-cap="Näyttönäkymä puhelimen selaimessa (/fav)">
-              <img src="assets/tools/flowcast/display-mobile.jpg" width="1200" height="540" loading="lazy" decoding="async" alt="FlowCastin suosikkinäkymä puhelimen selaimessa: kuva täyttää näytön pystysuunnassa, alareunassa selaus- ja toistopainikkeet sekä suosikkipainike">
-              <span class="cap">Näyttö mobiili</span>
+            <button class="shot" type="button">
+              <img src="assets/tools/flowcast/display-mobile.jpg" width="1200" height="540" loading="lazy" decoding="async" alt="FlowCast favourites view in a phone browser: image fills the portrait screen, navigation and playback buttons plus a heart button at the bottom">
+              <span class="cap" data-fi="Näyttö mobiili">Display mobile</span>
             </button>
-            <button class="shot tall" type="button" data-cap="FlowCast – admin-paneeli">
-              <img src="assets/tools/flowcast/admin-panel.png" width="1075" height="1008" loading="lazy" decoding="async" alt="FlowCastin admin-paneeli: näyttö-URLit, oletusasetukset, kustomoitu sisältö sekä suosikkien ja guest-sisällön hallinta tiedostomäärineen">
-              <span class="cap">Admin-paneeli</span>
+            <button class="shot tall" type="button">
+              <img src="assets/tools/flowcast/admin-panel.png" width="1075" height="1008" loading="lazy" decoding="async" alt="FlowCast admin panel: display URLs, default settings, custom content and file counts for favourites and guest content">
+              <span class="cap" data-fi="Admin-paneeli">Admin panel</span>
             </button>
-            <button class="shot tall" type="button" data-cap="Admin-asetukset – näytettävät kentät ja osiot">
-              <img src="assets/tools/flowcast/settings.jpg" width="769" height="756" loading="lazy" decoding="async" alt="FlowCastin admin-asetussivu: kytkimet näytettäville kentille sekä sisältöosioiden näkyvyydelle ja järjestykselle">
-              <span class="cap">Asetukset</span>
+            <button class="shot tall" type="button">
+              <img src="assets/tools/flowcast/settings.jpg" width="769" height="756" loading="lazy" decoding="async" alt="FlowCast admin settings page: switches for visible fields and for the visibility and order of content sections">
+              <span class="cap" data-fi="Asetukset">Settings</span>
             </button>
           </div>
           <ul class="shows">
-            <li>Viisi sisältölähdettä, osiokohtainen sekoitus ja round-robin-limitäminen.</li>
-            <li>AVI/WMV/MOV/MKV → MP4 -automaattikonversio FFmpegillä ja välimuistilla.</li>
-            <li>Sama näkymä TV:ssä, PC:llä ja puhelimessa — pelkkä selain, ei sovellusasennusta.</li>
-            <li>Erillinen Android-sovellus (Flet) tiedostojen siirtoon.</li>
+            <li data-fi="Viisi sisältölähdettä, osiokohtainen sekoitus ja round-robin-limitäminen.">Five content sources, per-section shuffle and round-robin interleaving.</li>
+            <li data-fi="AVI/WMV/MOV/MKV → MP4 -automaattikonversio FFmpegillä ja välimuistilla.">Automatic AVI/WMV/MOV/MKV → MP4 conversion with FFmpeg and a cache.</li>
+            <li data-fi="Sama näkymä TV:ssä, PC:llä ja puhelimessa — pelkkä selain, ei sovellusasennusta.">The same view on TV, desktop and phone — browser only, no app to install.</li>
+            <li data-fi="Erillinen Android-sovellus (Flet) tiedostojen siirtoon.">Separate Android app (Flet) for transferring files.</li>
           </ul>
           <ul class="chips"><li>Python</li><li>Flask</li><li>FFmpeg</li><li>vanilla JS</li><li>Flet</li></ul>
           <div class="actions">
-            <a class="btn small" href="https://github.com/teppoaland/flowcast" target="_blank" rel="noopener">Koodi</a>
+            <a class="btn small" href="https://github.com/teppoaland/flowcast" target="_blank" rel="noopener" data-fi="Koodi">Code</a>
             <a class="btn small ghost" href="https://github.com/teppoaland/flowcast/blob/main/README.md" target="_blank" rel="noopener">README</a>
-            <button class="btn small ghost" type="button" data-copy="#flowcast" aria-label="Kopioi linkki tähän projektiin">⧉</button>
+            <button class="btn small ghost" type="button" data-copy="#flowcast" aria-label="Copy link to this project">⧉</button>
           </div>
         </article>
 
         <article class="card reveal" id="tabtool">
-          <div class="meta"><span class="tag local">PAIKALLINEN</span><span>v2.23</span><span>ML + web</span></div>
+          <div class="meta"><span class="tag local" data-fi="PAIKALLINEN">LOCAL</span><span>v2.23</span><span>ML + web</span></div>
           <h3>AI TabTool</h3>
-          <p class="desc">Kitaratablatuurien haku, generointi ja katselu: hae biisi Spotifysta tai käytä omaa audiota, anna tekoälyn tehdä ensimmäinen luonnos ja katsele sitä alphaTabilla.</p>
-          <div class="shots" role="group" aria-label="Kuvakaappaukset: AI TabTool">
-            <button class="shot tall" type="button" data-cap="AI TabTool – työpöytänäkymä ja tablatuuri">
-              <img src="assets/tools/ai-tabtool/pc-view.jpg" width="1033" height="1200" loading="lazy" decoding="async" alt="AI TabTool työpöydällä: kirjasto- ja play-napit, soittimen säädöt sekä nuotti- ja tabulatuurilista alphaTab-näkymässä">
-              <span class="cap">Työpöytä</span>
+          <p class="desc" data-fi="Kitaratablatuurien haku, generointi ja katselu: hae biisi Spotifysta tai käytä omaa audiota, anna tekoälyn tehdä ensimmäinen luonnos ja katsele sitä alphaTabilla.">Guitar tab search, generation and playback: fetch a track from Spotify or use your own audio, let AI draft the first transcription and view it with alphaTab.</p>
+          <div class="shots" role="group" aria-label="Screenshots: AI TabTool">
+            <button class="shot tall" type="button">
+              <img src="assets/tools/ai-tabtool/pc-view.jpg" width="1033" height="1200" loading="lazy" decoding="async" alt="AI TabTool on desktop: library and play buttons, player controls and a score/tab view rendered by alphaTab">
+              <span class="cap" data-fi="Työpöytä">Desktop</span>
             </button>
-            <button class="shot tall" type="button" data-cap="AI TabTool – tablatuurigeneraattori">
-              <img src="assets/tools/ai-tabtool/ad-generate.jpg" width="1200" height="1200" loading="lazy" decoding="async" alt="AI TabTool -generaattorin näkymä: oman audion tai YouTube-linkin syöttö, viritys, grid ja GENERATE TAB -painike">
-              <span class="cap">Generaattori</span>
+            <button class="shot tall" type="button">
+              <img src="assets/tools/ai-tabtool/ad-generate.jpg" width="1200" height="1200" loading="lazy" decoding="async" alt="AI TabTool generator view: upload your own audio or paste a YouTube link, choose tuning and grid, then generate a tab">
+              <span class="cap" data-fi="Generaattori">Generator</span>
             </button>
-            <button class="shot tall" type="button" data-cap="Puhelin kaukosäätimenä – soitto">
-              <img src="assets/tools/ai-tabtool/remote-play.jpg" width="540" height="1200" loading="lazy" decoding="async" alt="AI TabTool -kaukosäädin puhelimessa: yhteys palvelimeen online, soitto-, lisää- ja säädä-painikkeet, play ja toistonopeus">
-              <span class="cap">Kaukosäädin</span>
+            <button class="shot tall" type="button">
+              <img src="assets/tools/ai-tabtool/remote-play.jpg" width="540" height="1200" loading="lazy" decoding="async" alt="AI TabTool remote control on a phone: server online, play/add/adjust buttons, play control and playback speed">
+              <span class="cap" data-fi="Kaukosäädin">Remote</span>
             </button>
-            <button class="shot tall" type="button" data-cap="Puhelin kaukosäätimenä – kirjasto">
-              <img src="assets/tools/ai-tabtool/remote-library.jpg" width="540" height="1200" loading="lazy" decoding="async" alt="AI TabTool -kaukosäätimen kirjastonäkymä puhelimessa: kappalelista BPM-tietoineen">
-              <span class="cap">Kirjasto</span>
+            <button class="shot tall" type="button">
+              <img src="assets/tools/ai-tabtool/remote-library.jpg" width="540" height="1200" loading="lazy" decoding="async" alt="AI TabTool remote library view on a phone: track list with BPM details">
+              <span class="cap" data-fi="Kirjasto">Library</span>
             </button>
           </div>
           <ul class="shows">
-            <li>Audio → MIDI -transkriptio (Basic Pitch) ja stemmien erottelu (Demucs).</li>
-            <li>Puhelin toimii kaukosäätimenä LAN-verkossa, QR-pariutus.</li>
-            <li>Kirjasto, versiot, BPM- ja synkronointityökalut.</li>
+            <li data-fi="Audio → MIDI -transkriptio (Basic Pitch) ja stemmien erottelu (Demucs).">Audio → MIDI transcription (Basic Pitch) and stem separation (Demucs).</li>
+            <li data-fi="Puhelin toimii kaukosäätimenä LAN-verkossa, QR-pariutus.">The phone works as a remote control on the LAN, paired by QR.</li>
+            <li data-fi="Kirjasto, versiot, BPM- ja synkronointityökalut.">Library, versions, BPM and sync tools.</li>
           </ul>
           <ul class="chips"><li>FastAPI</li><li>Demucs</li><li>Basic Pitch</li><li>alphaTab</li><li>yt-dlp</li><li>pytest</li></ul>
           <div class="actions">
-            <a class="btn small" href="https://github.com/teppoaland/tabtool" target="_blank" rel="noopener">Koodi</a>
+            <a class="btn small" href="https://github.com/teppoaland/tabtool" target="_blank" rel="noopener" data-fi="Koodi">Code</a>
             <a class="btn small ghost" href="https://github.com/teppoaland/tabtool/blob/main/README.md" target="_blank" rel="noopener">README</a>
-            <button class="btn small ghost" type="button" data-copy="#tabtool" aria-label="Kopioi linkki tähän projektiin">⧉</button>
+            <button class="btn small ghost" type="button" data-copy="#tabtool" aria-label="Copy link to this project">⧉</button>
           </div>
         </article>
       </div>
     </section>
     <section class="section wrap" id="qa" aria-labelledby="qa-title">
       <div class="section-head">
-        <h2 id="qa-title">🧪 QA &amp; automaatio</h2>
-        <span class="count">04 PoC:ta · 1 live dashboard</span>
-        <p>Testausautomaation PoC:eja, joissa näkyy sekä tekninen toteutus että raportointi: Appium, Robot Framework, pytest, Allure ja CI-putket.</p>
+        <h2 id="qa-title" data-fi="🧪 QA &amp; automaatio">🧪 QA &amp; automation</h2>
+        <span class="count" data-fi="04 PoC:ta · 1 live dashboard">04 PoCs · 1 live dashboard</span>
+        <p data-fi="Testausautomaation PoC:eja, joissa näkyy sekä tekninen toteutus että raportointi: Appium, Robot Framework, pytest, Allure ja CI-putket.">Test automation PoCs that show both the implementation and the reporting: Appium, Robot Framework, pytest, Allure and CI pipelines.</p>
       </div>
 
       <div class="lab">
         <div class="panel reveal">
-          <h3>Test Radiator — live dashboard</h3>
-          <p class="hint">Oikea data Allure-tuloksista yhdellä HTML-sivulla. Tulokset säilyvät julkisessa data-repossa, joten dashboard näyttää aina tuoreimman ajon.</p>
+          <h3 data-fi="Test Radiator — live dashboard">Test Radiator — live dashboard</h3>
+          <p class="hint" data-fi="Oikea data Allure-tuloksista yhdellä HTML-sivulla. Tulokset säilyvät julkisessa data-repossa, joten dashboard näyttää aina tuoreimman ajon.">Real data from Allure results on a single HTML page. The results live in a public data repo, so the dashboard always shows the latest run.</p>
           <div class="stage" style="margin-top:0;">
             <div class="stage-body" id="stage-radiator" style="aspect-ratio:4/3;min-height:320px;">
               <div class="stage-idle">
                 <p class="big">Dashboard v5</p>
-                <p>Lataa dashboard tähän klikkauksella — se hakee tuoreimmat tulokset ja piirtää tilannekuvan.</p>
-                <button class="btn small primary" type="button" data-demo="radiator">▶ Lataa dashboard</button>
-                <a class="btn small ghost" href="https://teppoaland.github.io/test-radiator/" target="_blank" rel="noopener">↗ Uusi välilehti</a>
+                <p data-fi="Lataa dashboard tähän klikkauksella — se hakee tuoreimmat tulokset ja piirtää tilannekuvan.">Load the dashboard with a click — it fetches the latest results and draws the picture.</p>
+                <button class="btn small primary" type="button" data-demo="radiator" data-fi="▶ Lataa dashboard">▶ Load dashboard</button>
+                <a class="btn small ghost" href="https://teppoaland.github.io/test-radiator/" target="_blank" rel="noopener" data-fi="↗ Uusi välilehti">↗ New tab</a>
               </div>
             </div>
           </div>
         </div>
 
         <div class="panel reveal">
-          <h3>Testiajo — simulaatio</h3>
-          <p class="hint">Näin yksi Appium-ajo etenee: laite kiinni, sovellus haetaan kaupasta, asennetaan, käynnistetään ja tarkistetaan. Simulaatio — ei oikeita laitteita.</p>
+          <h3 data-fi="Testiajo — simulaatio">Test run — simulation</h3>
+          <p class="hint" data-fi="Näin yksi Appium-ajo etenee: laite kiinni, sovellus haetaan kaupasta, asennetaan, käynnistetään ja tarkistetaan. Simulaatio — ei oikeita laitteita.">This is how one Appium run proceeds: device attached, app found in the store, installed, launched and verified. Simulation — no real devices.</p>
           <ul class="run-list" id="run-list" aria-live="polite">
-            <li data-step="1"><span>1 · Yhdistä laitteeseen</span><span class="state"></span></li>
-            <li data-step="2"><span>2 · Etsi sovellus kaupasta</span><span class="state"></span></li>
-            <li data-step="3"><span>3 · Asenna sovellus</span><span class="state"></span></li>
-            <li data-step="4"><span>4 · Käynnistä sovellus</span><span class="state"></span></li>
-            <li data-step="5"><span>5 · Tarkista käynnistyminen</span><span class="state"></span></li>
-            <li data-step="6"><span>6 · Kirjaa tulos ja kuvakaappaus</span><span class="state"></span></li>
+            <li data-step="1"><span data-fi="1 · Yhdistä laitteeseen">1 · Connect to a device</span><span class="state"></span></li>
+            <li data-step="2"><span data-fi="2 · Etsi sovellus kaupasta">2 · Find the app in the store</span><span class="state"></span></li>
+            <li data-step="3"><span data-fi="3 · Asenna sovellus">3 · Install the app</span><span class="state"></span></li>
+            <li data-step="4"><span data-fi="4 · Käynnistä sovellus">4 · Launch the app</span><span class="state"></span></li>
+            <li data-step="5"><span data-fi="5 · Tarkista käynnistyminen">5 · Verify it started</span><span class="state"></span></li>
+            <li data-step="6"><span data-fi="6 · Kirjaa tulos ja kuvakaappaus">6 · Record result and screenshot</span><span class="state"></span></li>
           </ul>
           <div class="bar"><i id="run-bar"></i></div>
-          <p class="run-summary" id="run-summary">Valmis ajoon.</p>
+          <p class="run-summary" id="run-summary">Ready to run.</p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;">
-            <button class="btn small primary" id="run-btn" type="button">▶ Aja testiajo</button>
-            <a class="btn small ghost" href="https://github.com/teppoaland/app_availability_check" target="_blank" rel="noopener">Miten se oikeasti tehdään</a>
+            <button class="btn small primary" id="run-btn" type="button">▶ Run test</button>
+            <a class="btn small ghost" href="https://github.com/teppoaland/app_availability_check" target="_blank" rel="noopener" data-fi="Miten se oikeasti tehdään">How it is really done</a>
           </div>
         </div>
       </div>
 
       <div class="grid" style="margin-top:18px;">
         <article class="card reveal" id="sebitti">
-          <div class="meta"><span class="tag">TESTAUSAUTOMAATIO</span><span>2 repoa</span><span>PoC + tuotanto</span></div>
+          <div class="meta"><span class="tag" data-fi="TESTAUSAUTOMAATIO">TEST AUTOMATION</span><span data-fi="2 repoa">2 repos</span><span data-fi="PoC + tuotanto">PoC + production</span></div>
           <h3>Sebitti Sää</h3>
-          <p class="desc">Sääsovelluksen testausautomaatio kahdessa vaiheessa: nopea PoC ja tuotantoversiona CI-putkeen kytketty kokonaisuus.</p>
+          <p class="desc" data-fi="Sääsovelluksen testausautomaatio kahdessa vaiheessa: nopea PoC ja tuotantoversiona CI-putkeen kytketty kokonaisuus.">Test automation for a weather app in two stages: a fast PoC, and a production version wired into CI.</p>
           <ul class="shows">
-            <li>Robot Framework ja pytest samassa paketissa, Appium laiteajoon.</li>
-            <li>Allure-raportit historialla ja kuvakaappauksilla.</li>
-            <li>GitHub Actions -workflowt sekä Azure Pipelines- ja Azure DevOps -integraatio.</li>
+            <li data-fi="Robot Framework ja pytest samassa paketissa, Appium laiteajoon.">Robot Framework and pytest in one package, Appium for device runs.</li>
+            <li data-fi="Allure-raportit historialla ja kuvakaappauksilla.">Allure reports with history and screenshots.</li>
+            <li data-fi="GitHub Actions -workflowt sekä Azure Pipelines- ja Azure DevOps -integraatio.">GitHub Actions workflows plus Azure Pipelines and Azure DevOps integration.</li>
           </ul>
           <ul class="chips"><li>Python</li><li>pytest</li><li>Robot Framework</li><li>Appium</li><li>Allure</li><li>Azure DevOps</li></ul>
           <div class="actions">
-            <a class="btn small" href="https://github.com/teppoaland/sesaa" target="_blank" rel="noopener">PoC-repo</a>
-            <a class="btn small" href="https://github.com/teppoaland/sbsaa" target="_blank" rel="noopener">Tuotanto-repo</a>
-            <button class="btn small ghost" type="button" data-copy="#sebitti" aria-label="Kopioi linkki tähän projektiin">⧉</button>
+            <a class="btn small" href="https://github.com/teppoaland/sesaa" target="_blank" rel="noopener" data-fi="PoC-repo">PoC repo</a>
+            <a class="btn small" href="https://github.com/teppoaland/sbsaa" target="_blank" rel="noopener" data-fi="Tuotanto-repo">Production repo</a>
+            <button class="btn small ghost" type="button" data-copy="#sebitti" aria-label="Copy link to this project">⧉</button>
           </div>
         </article>
 
         <article class="card reveal" id="availability">
-          <div class="meta"><span class="tag">TESTAUSAUTOMAATIO</span><span>CI</span><span>Allure</span></div>
+          <div class="meta"><span class="tag" data-fi="TESTAUSAUTOMAATIO">TEST AUTOMATION</span><span>CI</span><span>Allure</span></div>
           <h3>App Availability Check</h3>
-          <p class="desc">Tarkistaa, että listatut sovellukset löytyvät Google Play -kaupasta, asentuvat ja käynnistyvät — ja raportoi tuloksen Allureen.</p>
+          <p class="desc" data-fi="Tarkistaa, että listatut sovellukset löytyvät Google Play -kaupasta, asentuvat ja käynnistyvät — ja raportoi tuloksen Allureen.">Verifies that the listed apps exist in Google Play, install and launch — and reports the result to Allure.</p>
           <ul class="shows">
-            <li>Sovelluslista konfiguraationa: ajo kattaa kaikki kerralla.</li>
-            <li>Allure-historia säilyy erillisessä data-repossa, joten trendit näkyvät ajosta toiseen.</li>
-            <li>Ajetaan GitHub Actionsissa, tulokset katsottavissa dashboardilta.</li>
+            <li data-fi="Sovelluslista konfiguraationa: ajo kattaa kaikki kerralla.">The app list is configuration: one run covers all of them.</li>
+            <li data-fi="Allure-historia säilyy erillisessä data-repossa, joten trendit näkyvät ajosta toiseen.">Allure history is kept in a separate data repo, so trends are visible run to run.</li>
+            <li data-fi="Ajetaan GitHub Actionsissa, tulokset katsottavissa dashboardilta.">Runs in GitHub Actions; results are viewable on the dashboard.</li>
           </ul>
           <ul class="chips"><li>Python</li><li>Appium</li><li>Allure</li><li>GitHub Actions</li></ul>
           <div class="actions">
-            <a class="btn small" href="https://github.com/teppoaland/app_availability_check" target="_blank" rel="noopener">Koodi</a>
-            <a class="btn small ghost" href="https://teppoaland.github.io/test-radiator/" target="_blank" rel="noopener">Tulokset</a>
-            <button class="btn small ghost" type="button" data-copy="#availability" aria-label="Kopioi linkki tähän projektiin">⧉</button>
+            <a class="btn small" href="https://github.com/teppoaland/app_availability_check" target="_blank" rel="noopener" data-fi="Koodi">Code</a>
+            <a class="btn small ghost" href="https://teppoaland.github.io/test-radiator/" target="_blank" rel="noopener" data-fi="Tulokset">Results</a>
+            <button class="btn small ghost" type="button" data-copy="#availability" aria-label="Copy link to this project">⧉</button>
           </div>
         </article>
       </div>
     </section>
     <section class="section wrap" id="stack" aria-labelledby="stack-title">
       <div class="section-head">
-        <h2 id="stack-title">🧱 Stack &amp; tapa tehdä</h2>
-        <p>Työkalut valitaan tehtävän mukaan — tässä ne, joita projekteissa oikeasti käytetään.</p>
+        <h2 id="stack-title" data-fi="🧱 Stack &amp; tapa tehdä">🧱 Stack &amp; ways of working</h2>
+        <p data-fi="Työkalut valitaan tehtävän mukaan — tässä ne, joita projekteissa oikeasti käytetään.">Tools are chosen per task — these are the ones actually used in the projects.</p>
       </div>
       <div class="stack">
         <div class="panel reveal">
@@ -1075,35 +1107,35 @@
           <ul>
             <li>HTML5, CSS Grid &amp; Flexbox, custom properties</li>
             <li>Vanilla JavaScript (ES2020), Canvas, WebAudio</li>
-            <li>Ei frameworkkeja eikä build-vaihetta</li>
-            <li>Saavutettavuus ja <code>prefers-reduced-motion</code></li>
+            <li data-fi="Ei frameworkkeja eikä build-vaihetta">No frameworks and no build step</li>
+            <li data-fi="Saavutettavuus ja prefers-reduced-motion">Accessibility and <code>prefers-reduced-motion</code></li>
           </ul>
         </div>
         <div class="panel reveal">
           <h4>Back-end &amp; data</h4>
           <ul>
             <li>Python: Flask, FastAPI</li>
-            <li>FFmpeg-mediaketjut ja välimuistit</li>
-            <li>JSON-pohjaiset asetukset ja soittolistat</li>
-            <li>Flet (Android-sovellus)</li>
+            <li data-fi="FFmpeg-mediaketjut ja välimuistit">FFmpeg media pipelines and caches</li>
+            <li data-fi="JSON-pohjaiset asetukset ja soittolistat">JSON-based settings and playlists</li>
+            <li data-fi="Flet (Android-sovellus)">Flet (Android app)</li>
           </ul>
         </div>
         <div class="panel reveal">
-          <h4>Testaus &amp; CI</h4>
+          <h4 data-fi="Testaus &amp; CI">Testing &amp; CI</h4>
           <ul>
             <li>pytest, Robot Framework, Appium</li>
-            <li>Allure-raportit ja historia</li>
+            <li data-fi="Allure-raportit ja historia">Allure reports and history</li>
             <li>GitHub Actions, Azure Pipelines, Azure DevOps</li>
-            <li>Testidatan visualisointi HTML-dashboardilla</li>
+            <li data-fi="Testidatan visualisointi HTML-dashboardilla">Test data visualised with HTML dashboards</li>
           </ul>
         </div>
         <div class="panel reveal">
-          <h4>Tapa tehdä</h4>
+          <h4 data-fi="Tapa tehdä">Ways of working</h4>
           <ul>
-            <li>Pieniä, itsenäisiä kokonaisuuksia — ei raskaita riippuvuuksia</li>
-            <li>Kaikki julkinen katseluun, käyttö vaatii luvan</li>
-            <li>Dokumentaatio ja changelog mukana jokaisessa repossa</li>
-            <li>AI-avusteinen kehitys, ihminen vastaa lopputuloksesta</li>
+            <li data-fi="Pieniä, itsenäisiä kokonaisuuksia — ei raskaita riippuvuuksia">Small, independent units — no heavy dependencies</li>
+            <li data-fi="Kaikki julkinen katseluun, käyttö vaatii luvan">Everything public to view; usage requires permission</li>
+            <li data-fi="Dokumentaatio ja changelog mukana jokaisessa repossa">Docs and changelog in every repo</li>
+            <li data-fi="AI-avusteinen kehitys, ihminen vastaa lopputuloksesta">AI-assisted development, a human owns the result</li>
           </ul>
         </div>
       </div>
@@ -1114,36 +1146,36 @@
     <div class="wrap">
       <div class="cols">
         <div>
-          <p class="eyebrow">Yhteys</p>
+          <p class="eyebrow" data-fi="Yhteys">Contact</p>
           <p style="margin:0 0 10px;">
             <a href="https://github.com/teppoaland" target="_blank" rel="noopener">github.com/teppoaland</a><br>
             <a href="https://fi.linkedin.com/in/teppo-%C3%A5lander-5367b03" target="_blank" rel="noopener">linkedin.com/in/teppo-ålander</a>
           </p>
-          <p class="tiny" style="margin:0;">Paras tapa tutustua: pelaa hetki ja katso koodi.</p>
+          <p class="tiny" style="margin:0;" data-fi="Paras tapa tutustua: pelaa hetki ja katso koodi.">The best way to get to know me: play for a minute and read the code.</p>
         </div>
         <div>
-          <p class="eyebrow">Sivusto</p>
+          <p class="eyebrow" data-fi="Sivusto">Site</p>
           <p style="margin:0 0 10px;">
             <button class="btn small ghost" type="button" data-action="cv">Recruiter mode</button>
-            <button class="btn small ghost" type="button" data-action="palette">/ Haku</button>
-            <button class="btn small ghost" type="button" data-action="sound" aria-pressed="false" id="sound-btn">♪ Ääni: pois</button>
+            <button class="btn small ghost" type="button" data-action="palette" data-fi="/ Haku">/ Search</button>
+            <button class="btn small ghost" type="button" data-action="sound" aria-pressed="false" id="sound-btn">♪ Sound: off</button>
           </p>
         </div>
       </div>
-      <p class="tiny">
-        © 2026 Teppo Ålander · All rights reserved · Yksi HTML-tiedosto, CSS Grid + vanilla JS · Ei evästeitä, ei analytiikkaa, ei ulkoisia fontteja.
+      <p class="tiny" data-fi="© 2026 Teppo Ålander · All rights reserved · Yksi HTML-tiedosto, CSS Grid + vanilla JS · Ei evästeitä, ei analytiikkaa, ei ulkoisia fontteja.">
+        © 2026 Teppo Ålander · All rights reserved · One HTML file, CSS Grid + vanilla JS · No cookies, no analytics, no external fonts.
       </p>
     </div>
   </footer>
 
-  <div id="palette" hidden role="dialog" aria-modal="true" aria-label="Pikahaku">
+  <div id="palette" hidden role="dialog" aria-modal="true" aria-label="Quick search">
     <div class="palette-box">
-      <input id="palette-input" type="search" placeholder="Hae projektia, kategoriaa tai toimintoa…" autocomplete="off" aria-label="Haku">
+      <input id="palette-input" type="search" placeholder="Search projects, categories or actions…" autocomplete="off" aria-label="Search">
       <ul class="palette-list" id="palette-list" role="listbox" aria-label="Tulokset"></ul>
     </div>
   </div>
 
-  <div id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Kuvakaappaus suurempana">
+  <div id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Screenshot enlarged">
     <button class="btn small ghost lb-close" type="button" data-action="lb-close" aria-label="Sulje kuva">✕ Sulje</button>
     <img id="lb-img" src="" alt="">
     <div class="lb-bar">
@@ -1172,7 +1204,158 @@
         }
       };
 
-      /* ── Toast ──────────────────────────────────────────────────────── */
+      /* ── Language: EN default, FI toggle ───────────────────────────── */
+      var LANG_KEY = "fc_lang";
+      var lang = "en";
+
+      var I18N = {
+        en: {
+          soundOn: "♪ Sound: on",
+          soundOff: "♪ Sound: off",
+          palettePlaceholder: "Search projects, categories or actions…",
+          paletteEmpty: "No results",
+          kindSection: "section",
+          kindProject: "project",
+          kindAction: "action",
+          kindLink: "link",
+          paletteCv: "Recruiter mode (compact view)",
+          paletteCopy: "Copy summary",
+          paletteSound: "Sound on / off",
+          runIdle: "Ready to run.",
+          runRunning: "Running…",
+          runAgain: "▶ Run again",
+          runStart: "▶ Run test",
+          runSummary: "<b>PASS 5</b> · <i>FAIL 1</i> · 12.4 s · report: Allure",
+          runDone: "Test run finished: 5 PASS / 1 FAIL",
+          loading: "Loading: ",
+          linkCopied: "Link copied: ",
+          copyFailed: "Copy failed",
+          summaryCopied: "Summary copied to the clipboard",
+          summaryFailed: "Copy failed — select the text manually",
+          soundOnToast: "Sound on — WebAudio, no audio files",
+          soundOffToast: "Sound off",
+          cvOn: "Recruiter mode: compact view",
+          cvOff: "Back to the portfolio view",
+          chaos: "FULL CHAOS MODE — 10 s",
+          stageIdle: "— pick a game",
+          summary: [
+            "Teppo Ålander — software development and test automation",
+            "",
+            "Core: Python (Flask, FastAPI, pytest), Robot Framework, Appium, Allure,",
+            "GitHub Actions, Azure DevOps. Front-end: HTML5, CSS Grid/Flex, vanilla JS, Canvas.",
+            "",
+            "Published browser games: GAME HUB (5 mini-games), AI CHAOS STREET, Pimeä Katu.",
+            "Games run on PC, Mac, Android and iOS browsers — keyboard on desktop, touch on phones.",
+            "Tools: FlowCast (info TV / media server + Android), AI TabTool (audio→MIDI, alphaTab).",
+            "QA PoCs: Test Radiator dashboard, Sebitti Sää (PoC + production), App Availability Check.",
+            "",
+            "Portfolio: https://teppoaland.github.io/introduction/",
+            "GitHub: https://github.com/teppoaland",
+            "LinkedIn: https://fi.linkedin.com/in/teppo-%C3%A5lander-5367b03"
+          ]
+        },
+        fi: {
+          soundOn: "♪ Ääni: päällä",
+          soundOff: "♪ Ääni: pois",
+          palettePlaceholder: "Hae projektia, kategoriaa tai toimintoa…",
+          paletteEmpty: "Ei osumia",
+          kindSection: "osio",
+          kindProject: "projekti",
+          kindAction: "toiminto",
+          kindLink: "linkki",
+          paletteCv: "Recruiter mode (tiivis näkymä)",
+          paletteCopy: "Kopioi tiivistelmä",
+          paletteSound: "Ääni päälle / pois",
+          runIdle: "Valmis ajoon.",
+          runRunning: "Ajetaan…",
+          runAgain: "▶ Aja uudelleen",
+          runStart: "▶ Aja testiajo",
+          runSummary: "<b>PASS 5</b> · <i>FAIL 1</i> · 12,4 s · raportti: Allure",
+          runDone: "Testiajo valmis: 5 PASS / 1 FAIL",
+          loading: "Ladataan: ",
+          linkCopied: "Linkki kopioitu: ",
+          copyFailed: "Kopiointi ei onnistunut",
+          summaryCopied: "Yhteenveto kopioitu leikepöydälle",
+          summaryFailed: "Kopiointi ei onnistunut — valitse teksti käsin",
+          soundOnToast: "Ääni päällä — WebAudio, ei tiedostoja",
+          soundOffToast: "Ääni pois",
+          cvOn: "Recruiter mode: tiivis näkymä",
+          cvOff: "Takaisin portfolio-näkymään",
+          chaos: "FULL CHAOS MODE — 10 s",
+          stageIdle: "— valitse peli",
+          summary: [
+            "Teppo Ålander — ohjelmistokehitys ja testausautomaatio",
+            "",
+            "Ydinosuus: Python (Flask, FastAPI, pytest), Robot Framework, Appium, Allure,",
+            "GitHub Actions, Azure DevOps. Front-end: HTML5, CSS Grid/Flex, vanilla JS, Canvas.",
+            "",
+            "Julkaistut selainpelit: GAME HUB (5 minipeliä), AI CHAOS STREET, Pimeä Katu.",
+            "Pelit toimivat PC-, Mac-, Android- ja iOS-selaimissa: näppäimistö työpöydällä,",
+            "kosketusohjaimet puhelimessa — ei asennuksia.",
+            "Hyötyohjelmat: FlowCast (info-TV/mediapalvelin + Android), AI TabTool (audio→MIDI, alphaTab).",
+            "QA-PoC:t: Test Radiator -dashboard, Sebitti Sää (PoC + tuotanto), App Availability Check.",
+            "",
+            "Portfolio: https://teppoaland.github.io/introduction/",
+            "GitHub: https://github.com/teppoaland",
+            "LinkedIn: https://fi.linkedin.com/in/teppo-%C3%A5lander-5367b03"
+          ]
+        }
+      };
+
+      function t(key) {
+        var pack = I18N[lang] || I18N.en;
+        return pack[key] !== undefined ? pack[key] : I18N.en[key];
+      }
+
+      function detectLang() {
+        var q = null;
+        try { q = new URLSearchParams(location.search).get("lang"); } catch (e) { }
+        if (q === "fi" || q === "en") return q;
+        try {
+          var saved = localStorage.getItem(LANG_KEY);
+          if (saved === "fi" || saved === "en") return saved;
+        } catch (e) { }
+        return "en";
+      }
+
+      function applyLang(next) {
+        lang = next === "fi" ? "fi" : "en";
+        document.documentElement.setAttribute("lang", lang);
+
+        $$("[data-fi]").forEach(function (el) {
+          if (el.tagName === "TITLE") {
+            if (el.__en === undefined) el.__en = el.textContent;
+            document.title = lang === "fi" ? el.getAttribute("data-fi") : el.__en;
+            return;
+          }
+          if (el.__en === undefined) el.__en = el.innerHTML;
+          el.innerHTML = lang === "fi" ? el.getAttribute("data-fi") : el.__en;
+        });
+
+        $$("[data-setlang]").forEach(function (b) {
+          b.setAttribute("aria-pressed", String(b.getAttribute("data-setlang") === lang));
+        });
+
+        if (pInput) pInput.placeholder = t("palettePlaceholder");
+        paintSound();
+        if (runSummary && !running) runSummary.textContent = t("runIdle");
+        if (runBtn && !running) runBtn.textContent = t("runStart");
+        var stageName = $("#stage-name");
+        if (stageName && !$("#stage-body iframe")) stageName.textContent = t("stageIdle");
+        if (pItems.length) { buildPalette(); renderPalette(pInput ? pInput.value : ""); }
+      }
+
+      function setLang(next) {
+        applyLang(next);
+        try { localStorage.setItem(LANG_KEY, lang); } catch (e) { }
+        try {
+          var url = new URL(location.href);
+          if (lang === "en") url.searchParams.delete("lang");
+          else url.searchParams.set("lang", lang);
+          history.replaceState(null, "", url.href);
+        } catch (e) { }
+      }
+
       var toastTimer = null;
       function toast(msg) {
         var el = $("#toast");
@@ -1228,7 +1411,7 @@
       var soundBtn = $("#sound-btn");
       function paintSound() {
         if (!soundBtn) return;
-        soundBtn.textContent = soundOn ? "♪ Ääni: päällä" : "♪ Ääni: pois";
+        soundBtn.textContent = t(soundOn ? "soundOn" : "soundOff");
         soundBtn.setAttribute("aria-pressed", String(soundOn));
       }
       paintSound();
@@ -1303,7 +1486,7 @@
         if (nameEl) nameEl.textContent = demo.name;
         if (noteEl) noteEl.textContent = demo.note;
         blip(880, 0.08, "triangle");
-        toast("Ladataan: " + demo.name);
+        toast(t("loading") + demo.name);
         try { history.replaceState(null, "", "?demo=" + key + (location.hash || "")); } catch (e) { }
       }
       /* ── Command palette ───────────────────────────────────────────── */
@@ -1316,17 +1499,17 @@
         var items = [];
         $$("main section[id]").forEach(function (sec) {
           var h = sec.querySelector("h1, h2");
-          items.push({ label: h ? h.textContent.trim() : sec.id, kind: "osio", hash: "#" + sec.id });
+          items.push({ label: h ? h.textContent.trim() : sec.id, kind: t("kindSection"), hash: "#" + sec.id });
         });
         $$("article.card[id]").forEach(function (card) {
           var h = card.querySelector("h3");
-          items.push({ label: h ? h.textContent.trim() : card.id, kind: "projekti", hash: "#" + card.id });
+          items.push({ label: h ? h.textContent.trim() : card.id, kind: t("kindProject"), hash: "#" + card.id });
         });
-        items.push({ label: "Recruiter mode (tiivis näkymä)", kind: "toiminto", action: "cv" });
-        items.push({ label: "Kopioi tiivistelmä", kind: "toiminto", action: "copy-summary" });
-        items.push({ label: "Ääni päälle / pois", kind: "toiminto", action: "sound" });
-        items.push({ label: "GitHub-profiili", kind: "linkki", url: "https://github.com/teppoaland" });
-        items.push({ label: "LinkedIn-profiili", kind: "linkki", url: "https://fi.linkedin.com/in/teppo-%C3%A5lander-5367b03" });
+        items.push({ label: t("paletteCv"), kind: t("kindAction"), action: "cv" });
+        items.push({ label: t("paletteCopy"), kind: t("kindAction"), action: "copy-summary" });
+        items.push({ label: t("paletteSound"), kind: t("kindAction"), action: "sound" });
+        items.push({ label: "GitHub profile", kind: t("kindLink"), url: "https://github.com/teppoaland" });
+        items.push({ label: "LinkedIn profile", kind: t("kindLink"), url: "https://fi.linkedin.com/in/teppo-%C3%A5lander-5367b03" });
         pItems = items;
       }
 
@@ -1342,7 +1525,7 @@
           var msg = document.createElement("button");
           msg.type = "button";
           msg.disabled = true;
-          msg.textContent = "Ei osumia";
+          msg.textContent = t("paletteEmpty");
           empty.appendChild(msg);
           pList.appendChild(empty);
           return;
@@ -1398,7 +1581,7 @@
         store.set("fc_sound", soundOn);
         paintSound();
         if (soundOn) { blip(660, 0.06); setTimeout(function () { blip(990, 0.07); }, 90); }
-        toast(soundOn ? "Ääni päällä — WebAudio, ei tiedostoja" : "Ääni pois");
+        toast(t(soundOn ? "soundOnToast" : "soundOffToast"));
       }
 
       function toggleCV(force) {
@@ -1412,31 +1595,15 @@
           if (cv && cv.scrollIntoView) {
             cv.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
           }
-          toast("Recruiter mode: tiivis näkymä");
+          toast(t("cvOn"));
         } else {
-          toast("Takaisin portfolio-näkymään");
+          toast(t("cvOff"));
         }
       }
 
       function copySummary() {
-        var text = [
-          "Teppo Ålander — ohjelmistokehitys ja testausautomaatio",
-          "",
-          "Ydinosuus: Python (Flask, FastAPI, pytest), Robot Framework, Appium, Allure,",
-          "GitHub Actions, Azure DevOps. Front-end: HTML5, CSS Grid/Flex, vanilla JS, Canvas.",
-          "",
-          "Julkaistut selainpelit: GAME HUB (5 minipeliä), AI CHAOS STREET, Pimeä Katu.",
-          "Pelit toimivat PC-, Mac-, Android- ja iOS-selaimissa: näppäimistö työpöydällä,",
-          "kosketusohjaimet puhelimessa — ei asennuksia.",
-          "Hyötyohjelmat: FlowCast (info-TV/mediapalvelin + Android), AI TabTool (audio→MIDI, alphaTab).",
-          "QA-PoC:t: Test Radiator -dashboard, Sebitti Sää (PoC + tuotanto), App Availability Check.",
-          "",
-          "Portfolio: https://teppoaland.github.io/introduction/",
-          "GitHub: https://github.com/teppoaland",
-          "LinkedIn: https://fi.linkedin.com/in/teppo-%C3%A5lander-5367b03"
-        ].join("\n");
-        copyText(text).then(function (ok) {
-          toast(ok ? "Yhteenveto kopioitu leikepöydälle" : "Kopiointi ei onnistunut — valitse teksti käsin");
+        copyText(t("summary").join("\n")).then(function (ok) {
+          toast(ok ? t("summaryCopied") : t("summaryFailed"));
         });
       }
 
@@ -1456,7 +1623,7 @@
           return {
             src: im.getAttribute("src"),
             alt: im.getAttribute("alt") || "",
-            cap: b.getAttribute("data-cap") || im.getAttribute("alt") || ""
+            cap: ((b.querySelector(".cap") || {}).textContent || "").trim() || im.getAttribute("alt") || ""
           };
         });
         lbIndex = Math.max(0, items.indexOf(btn));
@@ -1521,13 +1688,13 @@
           });
         }
         if (runBar) runBar.style.width = "0%";
-        if (runSummary) runSummary.textContent = "Valmis ajoon.";
+        if (runSummary) runSummary.textContent = t("runIdle");
       }
 
       function runTests() {
         if (running || !runList) return;
         running = true;
-        if (runBtn) { runBtn.disabled = true; runBtn.textContent = "Ajetaan…"; }
+        if (runBtn) { runBtn.disabled = true; runBtn.textContent = t("runRunning"); }
         resetRun();
 
         var rows = $$("#run-list li");
@@ -1537,9 +1704,9 @@
         function next() {
           if (i >= rows.length) {
             running = false;
-            if (runBtn) { runBtn.disabled = false; runBtn.textContent = "▶ Aja uudelleen"; }
-            if (runSummary) runSummary.innerHTML = "<b>PASS 5</b> · <i>FAIL 1</i> · 12,4 s · raportti: Allure";
-            toast("Testiajo valmis: 5 PASS / 1 FAIL");
+            if (runBtn) { runBtn.disabled = false; runBtn.textContent = t("runAgain"); }
+            if (runSummary) runSummary.innerHTML = t("runSummary");
+            toast(t("runDone"));
             blip(520, 0.12, "sawtooth");
             return;
           }
@@ -1563,7 +1730,7 @@
 
       function chaos() {
         document.body.classList.add("chaos");
-        toast("FULL CHAOS MODE — 10 s");
+        toast(t("chaos"));
         blip(160, 0.2, "sawtooth");
         clearTimeout(chaosTimer);
         chaosTimer = setTimeout(function () { document.body.classList.remove("chaos"); }, 10000);
@@ -1571,6 +1738,8 @@
 
       /* ── Delegated clicks ──────────────────────────────────────────── */
       document.addEventListener("click", function (e) {
+        var langBtn = e.target.closest("[data-setlang]");
+        if (langBtn) { setLang(langBtn.getAttribute("data-setlang")); return; }
         var shot = e.target.closest(".shot");
         if (shot) { openLightbox(shot); return; }
         var t = e.target.closest("[data-demo], [data-copy], [data-goto], [data-action]");
@@ -1581,7 +1750,7 @@
           var hash = t.getAttribute("data-copy");
           var url = location.origin + location.pathname + hash;
           copyText(url).then(function (ok) {
-            toast(ok ? "Linkki kopioitu: " + hash : "Kopiointi ei onnistunut");
+            toast(ok ? t("linkCopied") + hash : t("copyFailed"));
           });
         } else if (t.hasAttribute("data-goto")) {
           location.hash = t.getAttribute("data-goto");
@@ -1658,6 +1827,7 @@
 
       /* ── Init ──────────────────────────────────────────────────────── */
       function init() {
+        applyLang(detectLang());
         buildPalette();
         renderPalette("");
         resetRun();
