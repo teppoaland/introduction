@@ -1,0 +1,16 @@
+Copyright (c) 2026 Teppo Ålander
+All rights reserved.
+
+Tämä esittelysivu (lähdekoodi, rakenne, tyylit ja sisältötekstit) on tekijänsä
+omaisuutta. Mitään osaa tästä projektista ei saa kopioida, muokata, julkaista
+uudelleen, levittää eikä käyttää omissa projekteissa tai kaupallisesti ilman
+tekijän kirjallista lupaa.
+
+Julkinen repositorio on tarkoitettu katselua ja tutustumista varten. Pelkkä
+katselu ei oikeuta ottamaan koodia käyttöön.
+
+Sivulla linkitetyt projektit (pelit, hyötyohjelmat ja testausautomaatiot) ovat
+omia repositorioitaan ja niillä on omat lisenssinsä. Sivusto ei sisällä
+kolmannen osapuolen kuvia, fontteja eikä skriptejä: kaikki grafiikka on CSS:ää
+ja SVG:tä, ja pelit ladataan iframeen niiden omilta GitHub Pages -osoitteilta
+vasta käyttäjän klikkauksesta.

@@ -1,0 +1,14 @@
+# IDE / OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Lokit ja väliaikaiset
+*.log
+tmp/
+*.tmp
+*.bak
+*.backup
+*.old
