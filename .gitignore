@@ -12,3 +12,7 @@ tmp/
 *.bak
 *.backup
 *.old
+
+# Paikallinen muisti ja agenttisäännöt (eivät julkiseen repoon)
+memory-bank/
+.clinerules/

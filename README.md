@@ -165,6 +165,27 @@ Kuvien `alt`-tekstit ja `aria-label`-tekstit ovat englanniksi (ei vaihdu kielen 
 
 Sivu on alipolussa, joten kaikki polut on pidettävä relatiivisina (`./`).
 
+## Kehitys ja auditointi
+
+Sivulla ei ole build-vaihetta — muokkaat `index.html`:ää ja lataat sivun uudelleen.
+
+```powershell
+cd D:\AI\introduction
+Start-Process python -ArgumentList '-m','http.server','8765','--directory','D:\AI\introduction'
+node tools\audit.mjs
+```
+
+`tools/audit.mjs` tarkistaa staattisesti duplikaatti-id:t, ankkurien kohteet ja
+kuvatiedostot sekä ajaa sivun headless-selaimessa (Edge/Chrome, DevTools-protokolla)
+testaten kielivaihdon, pikahaun, testiajon, lightboxin, pelilavan, fullscreenin ja
+recruiter-tilan. Ei npm-riippuvuuksia. Tavoite: **0 virhettä**.
+
+Kuvien optimointisääntö: pisin sivu ≤ 1200 px, JPEG q82–87 (UI-kuvakaappaukset PNG:nä),
+oikeat `width`/`height`-arvot ja kuvaava `alt`. Alkuperäiset kuvat eivät ole repossa.
+
+Ylläpitäjän tarkempi päivitysohje (uusi projekti, versiopäivitykset, julkaisu)
+on paikallisessa memory bankissa, joka on gitignoressa.
+
 ## Lisenssi
 
 All rights reserved, Copyright 2026 Teppo Ålander. Ks. [LICENSE](LICENSE).
