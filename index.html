@@ -707,8 +707,9 @@
       <p class="role">Ohjelmistokehitys · Testausautomaatio · HTML5-pelit</p>
       <p class="lead">
         Rakennan selaimessa heti toimivia pelejä, käytännön hyötyohjelmia ja testausautomaation
-        PoC:eja. Kaikki tällä sivulla on omaa käsialaani: vanilla-JS ja CSS ilman frameworkkeja,
-        Python-palvelimet sekä QA-putket Appiumista Azure DevOpsiin.
+        PoC:eja. Pelit on optimoitu PC-, Mac-, Android- ja iOS-selaimiin: näppäimistö työpöydällä,
+        kosketusohjaimet puhelimessa. Kaikki tällä sivulla on omaa käsialaani: vanilla-JS ja CSS
+        ilman frameworkkeja, Python-palvelimet sekä QA-putket Appiumista Azure DevOpsiin.
       </p>
       <p class="ticker" aria-label="Aktiiviset projektit">
         <span><b>● LIVE</b> GAME HUB 10.05</span>
@@ -716,6 +717,7 @@
         <span><b>● LIVE</b> TEST RADIATOR v5</span>
         <span>FLOWCAST 10.02</span>
         <span>AI TABTOOL 2.23</span>
+        <span>SELAIN: PC · MAC · ANDROID · iOS</span>
       </p>
       <div class="cta-row">
         <a class="btn primary" href="#pelit">▶ Pelaa nyt</a>
@@ -770,7 +772,7 @@
       <div class="section-head">
         <h2 id="pelit-title">🎮 Pelit</h2>
         <span class="count">03 kpl · kaikki pelattavissa</span>
-        <p>Selainpelejä ilman asennuksia: klikkaa ja pelaa. Jokainen peli toimii myös omalla GitHub Pages -osoitteellaan.</p>
+        <p>Selainpelejä ilman asennuksia: sama peli toimii PC:llä, Macilla, Androidilla ja iOS:llä. Näppäimistö työpöydällä, kosketusohjaimet puhelimessa — klikkaa ja pelaa.</p>
       </div>
 
       <div class="grid">
@@ -795,8 +797,9 @@
           <ul class="shows">
             <li>Pelit käynnistyvät iframessa ja palaavat hubiin <code>postMessage</code>-viestillä.</li>
             <li>Kukkaro, jono ja asetukset säilyvät <code>localStorage</code>ssa.</li>
+            <li>Optimoitu selainpeli: näppäimistö PC:llä, kosketusohjaimet puhelimessa.</li>
           </ul>
-          <ul class="chips"><li>vanilla JS</li><li>Canvas</li><li>postMessage</li><li>localStorage</li><li>GitHub Pages</li></ul>
+          <ul class="chips"><li>vanilla JS</li><li>Canvas</li><li>postMessage</li><li>localStorage</li><li>kosketusohjaus</li><li>GitHub Pages</li></ul>
           <div class="actions">
             <button class="btn small primary" type="button" data-demo="gamehub">▶ Pelaa tässä</button>
             <a class="btn small" href="https://teppoaland.github.io/gamehub/" target="_blank" rel="noopener">↗ Uusi välilehti</a>
@@ -810,32 +813,33 @@
           <h3>AI Chaos Street</h3>
           <p class="desc">Katusekoilu: liiku, potki ovia, kerää kolikot ja löydä avaimet. Muista myös syödä — muuten käy huonosti kesken pelin.</p>
           <div class="shots" role="group" aria-label="Kuvakaappaukset: AI Chaos Street">
+            <button class="shot" type="button" data-cap="Mobiili – kosketusohjaimet ja aamuinen katu">
+              <img src="assets/games/ai-chaos-street/morning-after.jpg" width="1200" height="540" loading="lazy" decoding="async" alt="AI Chaos Street puhelimen selaimessa: virtuaaliset nuolipainikkeet ruudun reunoilla, harmaa aamuinen katu ja versioteksti v11.26">
+              <span class="cap">Mobiili</span>
+            </button>
             <button class="shot tall" type="button" data-cap="AI Chaos Street – kaaostason valinta">
               <img src="assets/games/ai-chaos-street/menu.jpg" width="1037" height="1200" loading="lazy" decoding="async" alt="AI Chaos Street -valikko: viisi kaaostasoa (No Chaos, Mild, Good, Bad, Full Chaos)">
               <span class="cap">Kaaostaso</span>
-            </button>
-            <button class="shot" type="button" data-cap="Yökatu – tunnelma">
-              <img src="assets/games/ai-chaos-street/street-night.jpg" width="1200" height="598" loading="lazy" decoding="async" alt="Yöllinen pelikatu: täysikuu, katulamput ja neonkyltit BAR ja JUKEBOX">
-              <span class="cap">Yökatu</span>
-            </button>
-            <button class="shot tall" type="button" data-cap="Lähikuva – hahmo ja BAR">
-              <img src="assets/games/ai-chaos-street/closeup.jpg" width="1024" height="1028" loading="lazy" decoding="async" alt="Lähikuva pelikadusta: pikselihahmo seisoo BAR-kyltin edessä, taustalla kuu ja valaistuja ikkunoita">
-              <span class="cap">Lähikuva</span>
             </button>
             <button class="shot" type="button" data-cap="Laserammunta – kolikot ja avaimet">
               <img src="assets/games/ai-chaos-street/laser-shooting.jpg" width="1200" height="632" loading="lazy" decoding="async" alt="Pelitilanne: pelaaja ampuu laseria yökatua pitkin, yläpalkissa avaimet 0/3 ja kolikoita 34">
               <span class="cap">Laser</span>
             </button>
-            <button class="shot" type="button" data-cap="Aamu – mobiiliohjaus">
-              <img src="assets/games/ai-chaos-street/morning-after.jpg" width="1200" height="540" loading="lazy" decoding="async" alt="Aamuinen harmaa katu puhelimen selaimessa: virtuaaliset nuolipainikkeet ja versioteksti v11.26">
-              <span class="cap">Mobiili</span>
+            <button class="shot tall" type="button" data-cap="Lähikuva – hahmo ja BAR">
+              <img src="assets/games/ai-chaos-street/closeup.jpg" width="1024" height="1028" loading="lazy" decoding="async" alt="Lähikuva pelikadusta: pikselihahmo seisoo BAR-kyltin edessä, taustalla kuu ja valaistuja ikkunoita">
+              <span class="cap">Lähikuva</span>
+            </button>
+            <button class="shot" type="button" data-cap="Yökatu – tunnelma">
+              <img src="assets/games/ai-chaos-street/street-night.jpg" width="1200" height="598" loading="lazy" decoding="async" alt="Yöllinen pelikatu: täysikuu, katulamput ja neonkyltit BAR ja JUKEBOX">
+              <span class="cap">Yökatu</span>
             </button>
           </div>
           <ul class="shows">
             <li>Viisi kaaostasoa arpovat sään, liikenteen ja vuorokauden.</li>
             <li>Minipelit, jukebox ja hamburger-mittari samassa pelitilassa.</li>
+            <li>Sama versio PC:llä ja puhelimessa — kosketusohjaimet mobiilissa.</li>
           </ul>
-          <ul class="chips"><li>Canvas</li><li>WebAudio</li><li>game state</li><li>CRT-teema</li></ul>
+          <ul class="chips"><li>Canvas</li><li>WebAudio</li><li>game state</li><li>CRT-teema</li><li>kosketusohjaus</li></ul>
           <div class="actions">
             <button class="btn small primary" type="button" data-demo="aistreet">▶ Pelaa tässä</button>
             <a class="btn small" href="https://teppoaland.github.io/aistreet/" target="_blank" rel="noopener">↗ Uusi välilehti</a>
@@ -847,7 +851,7 @@
         <article class="card reveal" id="pimeakatu">
           <div class="meta"><span class="tag live">LIVE</span><span>v5.02</span><span>yöteema</span></div>
           <h3>Pimeä Katu</h3>
-          <p class="desc">Sama pelimoottori kuin AI Chaos Streetissä, mutta oma yöteema ja oma peliportaali — todiste siitä, että moottori taipuu eri ilmeeseen.</p>
+          <p class="desc">AI Chaos Streetin sisarversio: rauhallisempi yöportaali, jossa minipelit, jukebox ja kolikkotalous samassa valikossa.</p>
           <div class="shots" role="group" aria-label="Kuvakaappaukset: Pimeä Katu">
             <button class="shot" type="button" data-cap="Pimeä Katu – pelitilanne yöllä">
               <img src="assets/games/pimea-katu/street.jpg" width="1200" height="629" loading="lazy" decoding="async" alt="Pimeä Katu -pelitilanne: yöllinen katu täysikuun alla, BAR- ja JUKEBOX-neonit, hahmo ja linja-auto; yläpalkissa avaimet 0/3 ja kolikoita 2">
@@ -859,10 +863,11 @@
             </button>
           </div>
           <ul class="shows">
-            <li>Yhteinen koodipohja, eri visuaalinen ilme ja tunnelma.</li>
-            <li>Peliportaali kokoaa minipelit yhden kannen alle.</li>
+            <li>Sama koodipohja kuin AI Chaos Streetissä, eri ilme ja tunnelma.</li>
+            <li>Jukebox: vapaa musiikinvalinta, valittu jono soi myös pelien aikana.</li>
+            <li>Kosketusohjaimet mobiilissa, näppäimistö PC:llä — ei asennuksia.</li>
           </ul>
-          <ul class="chips"><li>Canvas</li><li>teemoitus</li><li>pilkkominen</li><li>GitHub Pages</li></ul>
+          <ul class="chips"><li>Canvas</li><li>jukebox</li><li>teemoitus</li><li>kosketusohjaus</li><li>GitHub Pages</li></ul>
           <div class="actions">
             <button class="btn small primary" type="button" data-demo="pimeakatu">▶ Pelaa tässä</button>
             <a class="btn small" href="https://teppoaland.github.io/pimeakatu/" target="_blank" rel="noopener">↗ Uusi välilehti</a>
@@ -1386,6 +1391,8 @@
           "GitHub Actions, Azure DevOps. Front-end: HTML5, CSS Grid/Flex, vanilla JS, Canvas.",
           "",
           "Julkaistut selainpelit: GAME HUB (5 minipeliä), AI CHAOS STREET, Pimeä Katu.",
+          "Pelit toimivat PC-, Mac-, Android- ja iOS-selaimissa: näppäimistö työpöydällä,",
+          "kosketusohjaimet puhelimessa — ei asennuksia.",
           "Hyötyohjelmat: FlowCast (info-TV/mediapalvelin + Android), AI TabTool (audio→MIDI, alphaTab).",
           "QA-PoC:t: Test Radiator -dashboard, Sebitti Sää (PoC + tuotanto), App Availability Check.",
           "",
