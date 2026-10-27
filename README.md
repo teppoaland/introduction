@@ -25,7 +25,7 @@ assets/games/ai-chaos-street/   menu.jpg · street-night.jpg · closeup.jpg
                                 laser-shooting.jpg · morning-after.jpg
 assets/games/pimea-katu/        street.jpg · jukebox.jpg
 assets/tools/ai-tabtool/        pc-view.jpg · remote-play.jpg · remote-library.jpg
-assets/tools/flowcast/          admin-panel.png · display-pc.jpg · settings.jpg
+assets/tools/flowcast/          admin-panel.png · display-pc.jpg · display-mobile.jpg · settings.jpg
 ```
 
 Pelikuvat on skaalattu niin, että pisin sivu on ≤ 1200 px ja JPEG-laatu 82–86;
