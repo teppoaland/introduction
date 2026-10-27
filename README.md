@@ -21,10 +21,11 @@ README.md     Tämä ohje
 
 ```
 assets/games/game-hub/          menu.jpg · blue-max-menu.jpg · blue-max-game.jpg
+                                dig-game.jpg · boulder-dash.jpg · fruit-machine.jpg
 assets/games/ai-chaos-street/   menu.jpg · street-night.jpg · closeup.jpg
                                 laser-shooting.jpg · morning-after.jpg
 assets/games/pimea-katu/        street.jpg · jukebox.jpg
-assets/tools/ai-tabtool/        pc-view.jpg · remote-play.jpg · remote-library.jpg
+assets/tools/ai-tabtool/        pc-view.jpg · ad-generate.jpg · remote-play.jpg · remote-library.jpg
 assets/tools/flowcast/          admin-panel.png · display-pc.jpg · display-mobile.jpg · settings.jpg
 ```
 
