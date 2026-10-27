@@ -11,10 +11,42 @@ testausautomaation PoC:t.
 
 ```
 index.html    Koko sivusto: rakenne, tyylit ja skriptit samassa tiedostossa
+assets/       Kuvakaappaukset (kategoria/peli tai työkalu)
 .nojekyll     Estää Jekyllin käsittelyn GitHub Pagesissa
 LICENSE       All rights reserved
 README.md     Tämä ohje
 ```
+
+### Kuvakaappaukset
+
+```
+assets/games/game-hub/          menu.jpg · blue-max-menu.jpg · blue-max-game.jpg
+assets/games/ai-chaos-street/   menu.jpg · street-night.jpg · closeup.jpg
+                                laser-shooting.jpg · morning-after.jpg
+assets/games/pimea-katu/        jukebox.jpg
+assets/tools/ai-tabtool/        pc-view.jpg · remote-play.jpg · remote-library.jpg
+```
+
+Kuvat on skaalattu niin, että pisin sivu on ≤ 1200 px ja JPEG-laatu 82
+(yhteensä ~0,8 MB). Alkuperäiset kuvakaappaukset ovat kansiossa `D:\App_img`
+eikä niitä ole repossa.
+
+**Kuvan lisääminen korttiin:**
+
+```html
+<div class="shots" role="group" aria-label="Kuvakaappaukset: Projektin nimi">
+  <button class="shot tall" type="button" data-cap="Kuvan otsikko">
+    <img src="assets/games/peli/kuva.jpg" width="1080" height="1920"
+         loading="lazy" decoding="async" alt="Mitä kuvassa näkyy">
+    <span class="cap">Lyhyt</span>
+  </button>
+</div>
+```
+
+- `width`/`height` = kuvan todelliset pikselimitat (estää asettelun hyppimisen).
+- `class="shot tall"` pystysuuntaisille kuville, `class="shot"` vaaka-kuville.
+- Kuvat avautuvat lightboxiin: nuolet / `Esc` / taustan klikkaus.
+- Samaan `.shots`-riviin lisätyt kuvat muodostavat oman selattavan sarjan.
 
 ## Paikallinen esikatselu
 
@@ -85,6 +117,7 @@ ladata sivun avautuessa, joten sivu pysyy nopeana. Suora demo-linkki:
 | Kopioi tiivistelmä | Recruiter moden nappi tai pikahaku |
 | Deep link projektiin | `#gamehub`, `#flowcast`, `#sebitti` … |
 | Suora demo | `?demo=gamehub`, `?demo=aistreet`, `?demo=pimeakatu`, `?demo=radiator` |
+| Kuvakaappaukset | klikkaus → lightbox; `←`/`→` selaa, `Esc` sulkee |
 | Ääni päälle/pois | footerin `♪`-nappi (WebAudio, oletuksena pois) |
 | Easter egg | Konami-koodi `↑↑↓↓←→←→BA` |
 

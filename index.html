@@ -16,7 +16,10 @@
   <meta property="og:title" content="Teppo Ålander — Pelit, hyötyohjelmat ja testausautomaatio">
   <meta property="og:description" content="Selainpelit, hyötyohjelmat ja QA-automaation PoC:t. Pelaa suoraan selaimessa.">
   <meta property="og:url" content="https://teppoaland.github.io/introduction/">
+  <meta property="og:image" content="https://teppoaland.github.io/introduction/assets/games/ai-chaos-street/street-night.jpg">
+  <meta property="og:image:alt" content="Yöllinen pelikatu: AI Chaos Street">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://teppoaland.github.io/introduction/assets/games/ai-chaos-street/street-night.jpg">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23050508'/><text x='16' y='23' font-family='monospace' font-size='17' font-weight='bold' fill='%2300e5ff' text-anchor='middle'>T</text></svg>">
   <style>
     /* ── Tokens ─────────────────────────────────────────────────────────── */
@@ -398,6 +401,92 @@
     .stage-idle { text-align: center; padding: 30px 20px; max-width: 46ch; }
     .stage-idle .big { font-family: var(--mono); font-size: 1rem; letter-spacing: .18em; color: var(--neon); margin-bottom: 10px; text-transform: uppercase; }
     .stage-idle p { color: var(--muted); font-size: .88rem; margin: 0 0 16px; }
+    /* ── Screenshot galleries ───────────────────────────────────────────── */
+    .shots {
+      display: flex; gap: 8px;
+      margin: 0 0 16px; padding: 0 0 6px;
+      overflow-x: auto;
+      scrollbar-width: thin;
+      scroll-snap-type: x proximity;
+    }
+
+    .shot {
+      position: relative;
+      flex: 0 0 auto;
+      padding: 0; margin: 0;
+      border: 1px solid rgba(0, 229, 255, .22);
+      border-radius: 6px;
+      background: #000;
+      cursor: zoom-in;
+      overflow: hidden;
+      line-height: 0;
+      scroll-snap-align: start;
+      transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+    }
+
+    .shot img { display: block; height: 104px; width: auto; }
+    .shot.tall img { height: 128px; }
+
+    .shot:hover, .shot:focus-visible {
+      border-color: var(--neon);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px -12px rgba(0, 229, 255, .9);
+    }
+
+    .shot .cap {
+      position: absolute; inset: auto 0 0 0;
+      font-family: var(--mono); font-size: .58rem; letter-spacing: .1em;
+      text-transform: uppercase; color: #dfe9f5;
+      background: rgba(0, 0, 0, .68);
+      padding: 3px 6px; text-align: left; line-height: 1.3;
+    }
+
+    .shots-hint {
+      font-family: var(--mono); font-size: .64rem; letter-spacing: .1em;
+      color: var(--muted); margin: -8px 0 14px;
+    }
+
+    /* ── Lightbox ───────────────────────────────────────────────────────── */
+    #lightbox {
+      position: fixed; inset: 0; z-index: 150;
+      display: grid; place-items: center;
+      padding: 24px;
+      background: rgba(3, 3, 6, .93);
+      backdrop-filter: blur(3px);
+    }
+
+    #lightbox[hidden] { display: none; }
+
+    #lightbox img {
+      max-width: min(96vw, 1400px);
+      max-height: 80vh;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      box-shadow: 0 30px 80px -30px rgba(0, 229, 255, .6);
+      background: #000;
+    }
+
+    #lightbox .lb-bar {
+      position: fixed; left: 0; right: 0; bottom: 0;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      padding: 14px 16px;
+      background: linear-gradient(transparent, rgba(0, 0, 0, .85));
+    }
+
+    #lightbox .lb-cap {
+      font-family: var(--mono); font-size: .76rem; letter-spacing: .1em;
+      color: #dfe9f5; margin-right: auto;
+    }
+
+    #lightbox .lb-close { position: fixed; top: 16px; right: 16px; }
+
+    @media (max-width: 620px) {
+      #lightbox { padding: 12px; }
+      #lightbox img { max-height: 68vh; }
+      .shot img { height: 84px; }
+      .shot.tall img { height: 104px; }
+    }
+
     /* ── QA test-run widget ─────────────────────────────────────────────── */
     .lab {
       display: grid; gap: 18px;
@@ -689,6 +778,20 @@
           <div class="meta"><span class="tag live">LIVE</span><span>v10.05</span><span>5 peliä</span></div>
           <h3>Game Hub</h3>
           <p class="desc">Keskusvalikko viidelle minipelille: Blue Mäx, Dig Game, Dig Däsh, Battleship ja Fruit Machine — sekä jukebox ilman kolikoita.</p>
+          <div class="shots" role="group" aria-label="Kuvakaappaukset: Game Hub">
+            <button class="shot tall" type="button" data-cap="Game Hub – päävalikko">
+              <img src="assets/games/game-hub/menu.jpg" width="826" height="927" loading="lazy" decoding="async" alt="Game Hub -päävalikko: viisi peliä listattuna (Blue Mäx, Dig Game, Dig Däsh, Battleship, Fruit Machine) sekä jukebox-linkki">
+              <span class="cap">Valikko</span>
+            </button>
+            <button class="shot" type="button" data-cap="Blue Mäx – aloitusruutu">
+              <img src="assets/games/game-hub/blue-max-menu.jpg" width="1200" height="540" loading="lazy" decoding="async" alt="Blue Mäx -pelin aloitusruutu puhelimessa: pelin nimi ja ohjeet (nuolet liikkumiseen, välilyönti pommiin, automaattinen kk-tuli)">
+              <span class="cap">Blue Mäx</span>
+            </button>
+            <button class="shot" type="button" data-cap="Blue Mäx – pelitilanne">
+              <img src="assets/games/game-hub/blue-max-game.jpg" width="1200" height="540" loading="lazy" decoding="async" alt="Blue Mäx -pelin pelitilanne: lentokone, pommi- ja asevalinnat sekä virtuaaliset ohjauspainikkeet">
+              <span class="cap">Pelitilanne</span>
+            </button>
+          </div>
           <ul class="shows">
             <li>Pelit käynnistyvät iframessa ja palaavat hubiin <code>postMessage</code>-viestillä.</li>
             <li>Kukkaro, jono ja asetukset säilyvät <code>localStorage</code>ssa.</li>
@@ -706,6 +809,28 @@
           <div class="meta"><span class="tag live">LIVE</span><span>v11.72</span><span>5 kaaostasoa</span></div>
           <h3>AI Chaos Street</h3>
           <p class="desc">Katusekoilu: liiku, potki ovia, kerää kolikot ja löydä avaimet. Muista myös syödä — muuten käy huonosti kesken pelin.</p>
+          <div class="shots" role="group" aria-label="Kuvakaappaukset: AI Chaos Street">
+            <button class="shot tall" type="button" data-cap="AI Chaos Street – kaaostason valinta">
+              <img src="assets/games/ai-chaos-street/menu.jpg" width="1037" height="1200" loading="lazy" decoding="async" alt="AI Chaos Street -valikko: viisi kaaostasoa (No Chaos, Mild, Good, Bad, Full Chaos)">
+              <span class="cap">Kaaostaso</span>
+            </button>
+            <button class="shot" type="button" data-cap="Yökatu – tunnelma">
+              <img src="assets/games/ai-chaos-street/street-night.jpg" width="1200" height="598" loading="lazy" decoding="async" alt="Yöllinen pelikatu: täysikuu, katulamput ja neonkyltit BAR ja JUKEBOX">
+              <span class="cap">Yökatu</span>
+            </button>
+            <button class="shot tall" type="button" data-cap="Lähikuva – hahmo ja BAR">
+              <img src="assets/games/ai-chaos-street/closeup.jpg" width="1024" height="1028" loading="lazy" decoding="async" alt="Lähikuva pelikadusta: pikselihahmo seisoo BAR-kyltin edessä, taustalla kuu ja valaistuja ikkunoita">
+              <span class="cap">Lähikuva</span>
+            </button>
+            <button class="shot" type="button" data-cap="Laserammunta – kolikot ja avaimet">
+              <img src="assets/games/ai-chaos-street/laser-shooting.jpg" width="1200" height="632" loading="lazy" decoding="async" alt="Pelitilanne: pelaaja ampuu laseria yökatua pitkin, yläpalkissa avaimet 0/3 ja kolikoita 34">
+              <span class="cap">Laser</span>
+            </button>
+            <button class="shot" type="button" data-cap="Aamu – mobiiliohjaus">
+              <img src="assets/games/ai-chaos-street/morning-after.jpg" width="1200" height="540" loading="lazy" decoding="async" alt="Aamuinen harmaa katu puhelimen selaimessa: virtuaaliset nuolipainikkeet ja versioteksti v11.26">
+              <span class="cap">Mobiili</span>
+            </button>
+          </div>
           <ul class="shows">
             <li>Viisi kaaostasoa arpovat sään, liikenteen ja vuorokauden.</li>
             <li>Minipelit, jukebox ja hamburger-mittari samassa pelitilassa.</li>
@@ -723,6 +848,12 @@
           <div class="meta"><span class="tag live">LIVE</span><span>v5.02</span><span>yöteema</span></div>
           <h3>Pimeä Katu</h3>
           <p class="desc">Sama pelimoottori kuin AI Chaos Streetissä, mutta oma yöteema ja oma peliportaali — todiste siitä, että moottori taipuu eri ilmeeseen.</p>
+          <div class="shots" role="group" aria-label="Kuvakaappaus: Pimeä Katu">
+            <button class="shot tall" type="button" data-cap="Jukebox – kappalevalinta ja kolikot">
+              <img src="assets/games/pimea-katu/jukebox.jpg" width="792" height="1200" loading="lazy" decoding="async" alt="Jukebox-näkymä puhelimessa: kappalelista hintoineen, kolikkotili ja poistumisohje">
+              <span class="cap">Jukebox</span>
+            </button>
+          </div>
           <ul class="shows">
             <li>Yhteinen koodipohja, eri visuaalinen ilme ja tunnelma.</li>
             <li>Peliportaali kokoaa minipelit yhden kannen alle.</li>
@@ -782,6 +913,20 @@
           <div class="meta"><span class="tag local">PAIKALLINEN</span><span>v2.23</span><span>ML + web</span></div>
           <h3>AI TabTool</h3>
           <p class="desc">Kitaratablatuurien haku, generointi ja katselu: hae biisi Spotifysta tai käytä omaa audiota, anna tekoälyn tehdä ensimmäinen luonnos ja katsele sitä alphaTabilla.</p>
+          <div class="shots" role="group" aria-label="Kuvakaappaukset: AI TabTool">
+            <button class="shot tall" type="button" data-cap="AI TabTool – työpöytänäkymä ja tablatuuri">
+              <img src="assets/tools/ai-tabtool/pc-view.jpg" width="1033" height="1200" loading="lazy" decoding="async" alt="AI TabTool työpöydällä: kirjasto- ja play-napit, soittimen säädöt sekä nuotti- ja tabulatuurilista alphaTab-näkymässä">
+              <span class="cap">Työpöytä</span>
+            </button>
+            <button class="shot tall" type="button" data-cap="Puhelin kaukosäätimenä – soitto">
+              <img src="assets/tools/ai-tabtool/remote-play.jpg" width="540" height="1200" loading="lazy" decoding="async" alt="AI TabTool -kaukosäädin puhelimessa: yhteys palvelimeen online, soitto-, lisää- ja säädä-painikkeet, play ja toistonopeus">
+              <span class="cap">Kaukosäädin</span>
+            </button>
+            <button class="shot tall" type="button" data-cap="Puhelin kaukosäätimenä – kirjasto">
+              <img src="assets/tools/ai-tabtool/remote-library.jpg" width="540" height="1200" loading="lazy" decoding="async" alt="AI TabTool -kaukosäätimen kirjastonäkymä puhelimessa: kappalelista BPM-tietoineen">
+              <span class="cap">Kirjasto</span>
+            </button>
+          </div>
           <ul class="shows">
             <li>Audio → MIDI -transkriptio (Basic Pitch) ja stemmien erottelu (Demucs).</li>
             <li>Puhelin toimii kaukosäätimenä LAN-verkossa, QR-pariutus.</li>
@@ -951,6 +1096,16 @@
     <div class="palette-box">
       <input id="palette-input" type="search" placeholder="Hae projektia, kategoriaa tai toimintoa…" autocomplete="off" aria-label="Haku">
       <ul class="palette-list" id="palette-list" role="listbox" aria-label="Tulokset"></ul>
+    </div>
+  </div>
+
+  <div id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Kuvakaappaus suurempana">
+    <button class="btn small ghost lb-close" type="button" data-action="lb-close" aria-label="Sulje kuva">✕ Sulje</button>
+    <img id="lb-img" src="" alt="">
+    <div class="lb-bar">
+      <span class="lb-cap" id="lb-cap"></span>
+      <button class="btn small" type="button" data-action="lb-prev" aria-label="Edellinen kuva">←</button>
+      <button class="btn small" type="button" data-action="lb-next" aria-label="Seuraava kuva">→</button>
     </div>
   </div>
 
@@ -1239,11 +1394,61 @@
         });
       }
 
+      /* ── Lightbox (kuvakaappaukset) ────────────────────────────────── */
+      var lb = $("#lightbox");
+      var lbImg = $("#lb-img");
+      var lbCap = $("#lb-cap");
+      var lbGroup = [];
+      var lbIndex = 0;
+
+      function openLightbox(btn) {
+        if (!lb || !lbImg) return;
+        var strip = btn.closest(".shots");
+        var items = strip ? $$(".shot", strip) : [btn];
+        lbGroup = items.map(function (b) {
+          var im = b.querySelector("img");
+          return {
+            src: im.getAttribute("src"),
+            alt: im.getAttribute("alt") || "",
+            cap: b.getAttribute("data-cap") || im.getAttribute("alt") || ""
+          };
+        });
+        lbIndex = Math.max(0, items.indexOf(btn));
+        paintLightbox();
+        lb.hidden = false;
+        document.body.style.overflow = "hidden";
+        blip(820, 0.05);
+      }
+
+      function paintLightbox() {
+        var it = lbGroup[lbIndex];
+        if (!it || !lbImg) return;
+        lbImg.src = it.src;
+        lbImg.alt = it.alt;
+        if (lbCap) lbCap.textContent = (lbIndex + 1) + "/" + lbGroup.length + " · " + it.cap;
+      }
+
+      function stepLightbox(d) {
+        if (!lbGroup.length) return;
+        lbIndex = (lbIndex + d + lbGroup.length) % lbGroup.length;
+        paintLightbox();
+        blip(760, 0.04);
+      }
+
+      function closeLightbox() {
+        if (!lb) return;
+        lb.hidden = true;
+        document.body.style.overflow = "";
+      }
+
       function runAction(action) {
         if (action === "cv") toggleCV();
         else if (action === "palette") openPalette();
         else if (action === "sound") toggleSound();
         else if (action === "copy-summary") copySummary();
+        else if (action === "lb-close") closeLightbox();
+        else if (action === "lb-prev") stepLightbox(-1);
+        else if (action === "lb-next") stepLightbox(1);
       }
       /* ── Test run widget ───────────────────────────────────────────── */
       var runBtn = $("#run-btn");
@@ -1320,6 +1525,8 @@
 
       /* ── Delegated clicks ──────────────────────────────────────────── */
       document.addEventListener("click", function (e) {
+        var shot = e.target.closest(".shot");
+        if (shot) { openLightbox(shot); return; }
         var t = e.target.closest("[data-demo], [data-copy], [data-goto], [data-action]");
         if (!t) return;
         if (t.hasAttribute("data-demo")) {
@@ -1353,6 +1560,11 @@
           openPalette();
           return;
         }
+        if (lb && !lb.hidden) {
+          if (key === "ArrowRight") { e.preventDefault(); stepLightbox(1); return; }
+          if (key === "ArrowLeft") { e.preventDefault(); stepLightbox(-1); return; }
+          if (key === "Escape") { closeLightbox(); return; }
+        }
         if (key === "Escape") {
           if (palette && !palette.hidden) closePalette();
           if (document.body.classList.contains("cv")) toggleCV(false);
@@ -1375,6 +1587,9 @@
       }
       if (palette) {
         palette.addEventListener("click", function (e) { if (e.target === palette) closePalette(); });
+      }
+      if (lb) {
+        lb.addEventListener("click", function (e) { if (e.target === lb) closeLightbox(); });
       }
 
       /* ── Reveal on scroll ──────────────────────────────────────────── */
