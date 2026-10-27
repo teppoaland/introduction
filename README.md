@@ -23,12 +23,12 @@ README.md     Tämä ohje
 assets/games/game-hub/          menu.jpg · blue-max-menu.jpg · blue-max-game.jpg
 assets/games/ai-chaos-street/   menu.jpg · street-night.jpg · closeup.jpg
                                 laser-shooting.jpg · morning-after.jpg
-assets/games/pimea-katu/        jukebox.jpg
+assets/games/pimea-katu/        street.jpg · jukebox.jpg
 assets/tools/ai-tabtool/        pc-view.jpg · remote-play.jpg · remote-library.jpg
 ```
 
-Kuvat on skaalattu niin, että pisin sivu on ≤ 1200 px ja JPEG-laatu 82
-(yhteensä ~0,8 MB). Alkuperäiset kuvakaappaukset ovat kansiossa `D:\App_img`
+Kuvat on skaalattu niin, että pisin sivu on ≤ 1200 px ja JPEG-laatu 82–86
+(yhteensä ~0,9 MB). Alkuperäiset kuvakaappaukset ovat kansiossa `D:\App_img`
 eikä niitä ole repossa.
 
 **Kuvan lisääminen korttiin:**
