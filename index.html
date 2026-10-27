@@ -167,7 +167,7 @@
     .site-head {
       position: sticky; top: 0; z-index: 80;
       backdrop-filter: blur(8px);
-      background: rgba(5, 5, 8, .72);
+      background: rgba(5, 5, 8, .92);
       border-bottom: 1px solid var(--line);
     }
 
@@ -598,8 +598,8 @@
     .run-list li.fail .state::before { content: "FAIL"; }
     .run-list li.run .state::before { content: "···"; }
 
-    .bar { height: 6px; background: rgba(139, 139, 163, .2); border-radius: 999px; overflow: hidden; margin-bottom: 12px; }
-    .bar > i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--neon), var(--green)); transition: width .25s ease; }
+    .run-progress { height: 6px; background: rgba(139, 139, 163, .2); border-radius: 999px; overflow: hidden; margin-bottom: 12px; }
+    .run-progress > i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--neon), var(--green)); transition: width .25s ease; }
 
     .run-summary { font-family: var(--mono); font-size: .8rem; color: var(--muted); min-height: 1.4em; }
     .run-summary b { color: var(--green); }
@@ -712,6 +712,29 @@
       .stage-body { height: clamp(420px, 72vh, 680px); }
       .nav a { padding: 8px 8px; font-size: .7rem; }
       .hero h1 { text-shadow: 0 0 4px rgba(0, 229, 255, .5); }
+
+      /* Mobiles the games open in a new tab: no inline stage, no play-here buttons */
+      #stage,
+      #pelit [data-demo] { display: none !important; }
+
+      /* Compact top bar */
+      .site-head .bar { flex-wrap: nowrap; gap: 8px; padding: 8px 0; }
+      .brand { font-size: .84rem; letter-spacing: .1em; white-space: nowrap; }
+      .nav {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 2px;
+      }
+      .nav::-webkit-scrollbar { display: none; }
+      .nav a { white-space: nowrap; }
+      .lang { flex: 0 0 auto; }
+      .lang button { min-height: 32px; padding: 0 8px; }
+      .nav .btn.small { flex: 0 0 auto; }
+
+      /* The command palette is a keyboard tool: hide its button on touch screens */
+      .nav [data-action="palette"] { display: none; }
     }
 
     @media (max-width: 520px) {
@@ -1101,7 +1124,7 @@
             <li data-step="5"><span data-fi="5 · Tarkista käynnistyminen">5 · Verify it started</span><span class="state"></span></li>
             <li data-step="6"><span data-fi="6 · Kirjaa tulos ja kuvakaappaus">6 · Record result and screenshot</span><span class="state"></span></li>
           </ul>
-          <div class="bar"><i id="run-bar"></i></div>
+          <div class="run-progress"><i id="run-bar"></i></div>
           <p class="run-summary" id="run-summary">Ready to run.</p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;">
             <button class="btn small primary" id="run-btn" type="button">▶ Run test</button>
@@ -1243,6 +1266,7 @@
       var $ = function (s, r) { return (r || document).querySelector(s); };
       var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
       var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      function isNarrow() { return window.matchMedia("(max-width: 820px)").matches; }
 
       var store = {
         get: function (k, d) {
@@ -1288,6 +1312,7 @@
           cvOff: "Back to the portfolio view",
           chaos: "FULL CHAOS MODE — 10 s",
           stageIdle: "— pick a game",
+          mobileNewTab: "On a phone the games open in a new tab",
           fsEnter: "⛶ Fullscreen",
           fsExit: "⛶ Exit fullscreen",
           fsUnsupported: "This browser does not support fullscreen",
@@ -1337,6 +1362,7 @@
           cvOff: "Takaisin portfolio-näkymään",
           chaos: "FULL CHAOS MODE — 10 s",
           stageIdle: "— valitse peli",
+          mobileNewTab: "Puhelimessa pelit avautuvat uuteen välilehteen",
           fsEnter: "⛶ Koko näyttö",
           fsExit: "⛶ Pois koko näytöstä",
           fsUnsupported: "Tämä selain ei tue koko näyttöä",
@@ -1530,6 +1556,7 @@
       function loadDemo(key) {
         var demo = DEMOS[key];
         if (!demo) return;
+        if (key !== "radiator" && isNarrow()) { toast(t("mobileNewTab")); return; }
         var target = key === "radiator" ? $("#stage-radiator") : $("#stage-body");
         if (!target) return;
         target.innerHTML = "";
