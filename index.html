@@ -415,9 +415,10 @@
 
     .stage-body {
       position: relative;
+      height: clamp(520px, 70vh, 820px);
       min-height: 420px;
-      display: grid; place-items: center;
-      aspect-ratio: 16 / 10;
+      display: grid;
+      place-items: center;
       background:
         linear-gradient(rgba(0, 229, 255, .06) 1px, transparent 1px) 0 0 / 100% 34px,
         linear-gradient(90deg, rgba(0, 229, 255, .06) 1px, transparent 1px) 0 0 / 34px 100%,
@@ -425,6 +426,54 @@
     }
 
     .stage-body iframe { width: 100%; height: 100%; border: 0; display: block; background: #000; }
+
+    /* Whole stage to fullscreen: the game gets the whole screen */
+    .stage:fullscreen,
+    .stage:-webkit-full-screen {
+      display: flex;
+      flex-direction: column;
+      width: 100vw;
+      height: 100vh;
+      border: 0;
+      border-radius: 0;
+      margin: 0;
+      background: #000;
+    }
+
+    .stage:fullscreen .stage-body,
+    .stage:-webkit-full-screen .stage-body {
+      flex: 1 1 auto;
+      height: auto;
+      min-height: 0;
+      aspect-ratio: auto;
+    }
+
+    /* Fallback fullscreen that works everywhere (no Fullscreen API needed) */
+    .stage.stage-expanded {
+      position: fixed;
+      inset: 0;
+      z-index: 160;
+      display: flex;
+      flex-direction: column;
+      border: 0;
+      border-radius: 0;
+      margin: 0;
+      background: #000;
+    }
+
+    .stage.stage-expanded .stage-body {
+      flex: 1 1 auto;
+      height: auto;
+      min-height: 0;
+      aspect-ratio: auto;
+    }
+
+    .stage.stage-expanded .stage-bar {
+      background: #0d0d17;
+      border-bottom: 1px solid var(--line);
+    }
+
+    body.stage-expanded { overflow: hidden; }
 
     .stage-idle { text-align: center; padding: 30px 20px; max-width: 46ch; }
     .stage-idle .big { font-family: var(--mono); font-size: 1rem; letter-spacing: .18em; color: var(--neon); margin-bottom: 10px; text-transform: uppercase; }
@@ -660,7 +709,7 @@
     /* ── Responsive ─────────────────────────────────────────────────────── */
     @media (max-width: 820px) {
       .lab { grid-template-columns: 1fr; }
-      .stage-body { aspect-ratio: 4 / 3; min-height: 340px; }
+      .stage-body { height: clamp(420px, 72vh, 680px); }
       .nav a { padding: 8px 8px; font-size: .7rem; }
       .hero h1 { text-shadow: 0 0 4px rgba(0, 229, 255, .5); }
     }
@@ -670,7 +719,7 @@
       .nav { width: 100%; margin-left: 0; justify-content: flex-start; }
       .ticker { font-size: .68rem; gap: 10px; }
       .card { padding: 18px; }
-      .stage-body { min-height: 300px; }
+      .stage-body { height: clamp(380px, 76vh, 620px); min-height: 340px; }
     }
 
     /* ── Reduced motion ─────────────────────────────────────────────────── */
@@ -927,11 +976,12 @@
           <span data-fi="Pelilava">Demo stage</span>
           <span class="muted" id="stage-name" data-en="— pick a game" data-fi="— valitse peli">— pick a game</span>
           <span class="muted" id="stage-note" style="margin-left:auto;"></span>
+          <button class="btn small ghost" type="button" id="stage-fs" data-action="fullscreen" aria-pressed="false" data-fi="⛶ Koko näyttö">⛶ Fullscreen</button>
         </div>
         <div class="stage-body" id="stage-body">
           <div class="stage-idle">
             <p class="big" data-fi="Valitse peli ylhäältä">Pick a game above</p>
-            <p data-fi="Peli ladataan tähän vain klikkauksesta, joten sivu avautuu nopeasti myös puhelimella. Voit aina avata pelin myös omassa välilehdessään.">A game loads here only when you click, so the page stays fast on mobile. You can always open it in its own tab.</p>
+            <p data-fi="Peli ladataan tähän vain klikkauksesta, joten sivu avautuu nopeasti myös puhelimella. Jos peli tuntuu ahtaalta, avaa se ⛶ Koko näyttö -napista.">A game loads here only when you click, so the page stays fast on mobile. If a game feels cramped, open it with the ⛶ Fullscreen button.</p>
             <a class="btn small" href="#gamehub" data-fi="Siirry pelikortteihin ↑">Back to the game cards ↑</a>
           </div>
         </div>
@@ -1029,7 +1079,7 @@
           <h3 data-fi="Test Radiator — live dashboard">Test Radiator — live dashboard</h3>
           <p class="hint" data-fi="Oikea data Allure-tuloksista yhdellä HTML-sivulla. Tulokset säilyvät julkisessa data-repossa, joten dashboard näyttää aina tuoreimman ajon.">Real data from Allure results on a single HTML page. The results live in a public data repo, so the dashboard always shows the latest run.</p>
           <div class="stage" style="margin-top:0;">
-            <div class="stage-body" id="stage-radiator" style="aspect-ratio:4/3;min-height:320px;">
+            <div class="stage-body" id="stage-radiator" style="height:clamp(380px, 54vh, 560px);">
               <div class="stage-idle">
                 <p class="big">Dashboard v5</p>
                 <p data-fi="Lataa dashboard tähän klikkauksella — se hakee tuoreimmat tulokset ja piirtää tilannekuvan.">Load the dashboard with a click — it fetches the latest results and draws the picture.</p>
@@ -1238,6 +1288,10 @@
           cvOff: "Back to the portfolio view",
           chaos: "FULL CHAOS MODE — 10 s",
           stageIdle: "— pick a game",
+          fsEnter: "⛶ Fullscreen",
+          fsExit: "⛶ Exit fullscreen",
+          fsUnsupported: "This browser does not support fullscreen",
+          fsBlocked: "Fullscreen was blocked by the browser",
           summary: [
             "Teppo Ålander — software development and test automation",
             "",
@@ -1283,6 +1337,10 @@
           cvOff: "Takaisin portfolio-näkymään",
           chaos: "FULL CHAOS MODE — 10 s",
           stageIdle: "— valitse peli",
+          fsEnter: "⛶ Koko näyttö",
+          fsExit: "⛶ Pois koko näytöstä",
+          fsUnsupported: "Tämä selain ei tue koko näyttöä",
+          fsBlocked: "Selain esti koko näytön",
           summary: [
             "Teppo Ålander — ohjelmistokehitys ja testausautomaatio",
             "",
@@ -1338,6 +1396,7 @@
 
         if (pInput) pInput.placeholder = t("palettePlaceholder");
         paintSound();
+        paintFullscreenBtn();
         if (runSummary && !running) runSummary.textContent = t("runIdle");
         if (runBtn && !running) runBtn.textContent = t("runStart");
         var stageName = $("#stage-name");
@@ -1487,6 +1546,10 @@
         if (noteEl) noteEl.textContent = demo.note;
         blip(880, 0.08, "triangle");
         toast(t("loading") + demo.name);
+        var stageEl = $("#stage");
+        if (stageEl && stageEl.scrollIntoView && !isStageFullscreen() && !isStageExpanded()) {
+          stageEl.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+        }
         try { history.replaceState(null, "", "?demo=" + key + (location.hash || "")); } catch (e) { }
       }
       /* ── Command palette ───────────────────────────────────────────── */
@@ -1654,11 +1717,69 @@
         document.body.style.overflow = "";
       }
 
+      /* ── Fullscreen demo stage ─────────────────────────────────────── */
+      function isStageFullscreen() {
+        var el = document.fullscreenElement || document.webkitFullscreenElement;
+        return !!el && el.id === "stage";
+      }
+
+      function isStageExpanded() {
+        var s = $("#stage");
+        return !!s && s.classList.contains("stage-expanded");
+      }
+
+      function setStageExpanded(on) {
+        var s = $("#stage");
+        if (!s) return;
+        s.classList.toggle("stage-expanded", on);
+        document.body.classList.toggle("stage-expanded", on);
+        paintFullscreenBtn();
+      }
+
+      function paintFullscreenBtn() {
+        var btn = $("#stage-fs");
+        if (!btn) return;
+        var on = isStageFullscreen() || isStageExpanded();
+        btn.setAttribute("aria-pressed", String(on));
+        btn.textContent = on ? t("fsExit") : t("fsEnter");
+      }
+
+      function toggleFullscreen() {
+        var stage = $("#stage");
+        if (!stage) return;
+
+        if (isStageFullscreen()) {
+          var exit = document.exitFullscreen || document.webkitExitFullscreen;
+          if (exit) exit.call(document);
+          setStageExpanded(false);
+          return;
+        }
+        if (isStageExpanded()) {
+          setStageExpanded(false);
+          return;
+        }
+
+        var req = stage.requestFullscreen || stage.webkitRequestFullscreen;
+        if (req && document.fullscreenEnabled !== false) {
+          try {
+            var res = req.call(stage);
+            if (res && res.then) {
+              res.then(function () { paintFullscreenBtn(); }, function () { setStageExpanded(true); });
+              return;
+            }
+            paintFullscreenBtn();
+            return;
+          } catch (e) { }
+        }
+        setStageExpanded(true);
+      }
+
       function runAction(action) {
         if (action === "cv") toggleCV();
         else if (action === "palette") openPalette();
         else if (action === "sound") toggleSound();
         else if (action === "copy-summary") copySummary();
+        else if (action === "fullscreen") toggleFullscreen();
         else if (action === "lb-close") closeLightbox();
         else if (action === "lb-prev") stepLightbox(-1);
         else if (action === "lb-next") stepLightbox(1);
@@ -1782,6 +1903,7 @@
         }
         if (key === "Escape") {
           if (palette && !palette.hidden) closePalette();
+          if (isStageExpanded()) setStageExpanded(false);
           if (document.body.classList.contains("cv")) toggleCV(false);
         }
       });
@@ -1806,6 +1928,9 @@
       if (lb) {
         lb.addEventListener("click", function (e) { if (e.target === lb) closeLightbox(); });
       }
+
+      document.addEventListener("fullscreenchange", paintFullscreenBtn);
+      document.addEventListener("webkitfullscreenchange", paintFullscreenBtn);
 
       /* ── Reveal on scroll ──────────────────────────────────────────── */
       function initReveal() {

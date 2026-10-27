@@ -122,6 +122,7 @@ ladata sivun avautuessa, joten sivu pysyy nopeana. Suora demo-linkki:
 | Deep link projektiin | `#gamehub`, `#flowcast`, `#sebitti` … |
 | Suora demo | `?demo=gamehub`, `?demo=aistreet`, `?demo=pimeakatu`, `?demo=radiator` |
 | Kuvakaappaukset | klikkaus → lightbox; `←`/`→` selaa, `Esc` sulkee |
+| Pelilava | `⛶ Fullscreen` = natiivi koko näyttö tai CSS-fallback; `Esc` palauttaa |
 | Ääni päälle/pois | footerin `♪`-nappi (WebAudio, oletuksena pois) |
 | Easter egg | Konami-koodi `↑↑↓↓←→←→BA` |
 
