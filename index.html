@@ -376,6 +376,13 @@
     .tag.local { border-color: rgba(255, 204, 0, .55); color: var(--amber); }
 
     .card h3 { margin: 0 0 6px; font-size: 1.12rem; letter-spacing: .08em; text-transform: uppercase; }
+    .card h3 .app-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      vertical-align: -6px;
+      margin-right: 7px;
+    }
     .card .desc { margin: 0 0 14px; color: #c2c2d6; font-size: .93rem; }
     .card .shows { margin: 0 0 16px; padding-left: 16px; color: var(--muted); font-size: .84rem; }
     .card .shows li { margin-bottom: 3px; }
@@ -1092,7 +1099,7 @@
 
         <article class="card reveal" id="pianocapture">
           <div class="meta"><span class="tag local" data-fi="PAIKALLINEN">LOCAL</span><span class="tag live">WINDOWS</span><span>v1.06</span></div>
-          <h3>PianoCapture</h3>
+          <h3><img class="app-icon" src="assets/tools/pianocapture/icon.png" width="28" height="28" alt="" decoding="async">PianoCapture</h3>
           <p class="desc" data-fi="YouTube-linkki tai äänitiedosto muuttuu soitto-ohjeeksi pianolle: näet tulevat nuotit ja koskettimiston, voit hidastaa, loopittaa ja avata saman ohjeen puhelimella. Nyt myös Windows-asennuksena.">A YouTube link or audio file becomes a piano practice view: upcoming notes above an 88-key keyboard, with slowdown, looping and the same guide on your phone. Now also as a Windows installer.</p>
           <div class="shots" role="group" aria-label="Screenshots: PianoCapture">
             <button class="shot" type="button">
