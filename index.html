@@ -862,7 +862,7 @@
         <button class="cart" type="button" data-goto="#tyokalut">
           <span class="ico" aria-hidden="true">🛠</span>
           <h3 data-fi="Hyötyohjelmat">Tools</h3>
-          <p data-fi="FlowCast (info-TV ja mediasoitin), AI TabTool (tablatuurit ja ML) sekä PianoCapture (piano 88 koskettimelle).">FlowCast (info TV and media player), AI TabTool (tabs and machine learning) and PianoCapture (piano onto 88 keys).</p>
+          <p data-fi="FlowCast (info-TV ja mediasoitin), AI TabTool (tablatuurit ja ML) sekä PianoCapture (piano 88 koskettimelle, Windows ja puhelin).">FlowCast (info TV and media player), AI TabTool (tabs and machine learning) and PianoCapture (piano onto 88 keys, Windows and phone).</p>
           <span class="go" data-fi="TUTUSTU →">EXPLORE →</span>
         </button>
         <button class="cart" type="button" data-goto="#qa">
@@ -1091,31 +1091,36 @@
         </article>
 
         <article class="card reveal" id="pianocapture">
-          <div class="meta"><span class="tag local" data-fi="PAIKALLINEN">LOCAL</span><span>v0.4.1</span><span>ML + Canvas</span></div>
+          <div class="meta"><span class="tag local" data-fi="PAIKALLINEN">LOCAL</span><span class="tag live">WINDOWS</span><span>v1.06</span></div>
           <h3>PianoCapture</h3>
-          <p class="desc" data-fi="YouTube-pätkä pianon alkusoitosta 88 koskettimelle: tekoäly etsii intron ja bändin sisääntulon, transkriboi nuotit ja näyttää ne laskevina palkkeina oikealla pianokoskettimistolla — myös puhelimessa.">A YouTube fragment of a piano intro becomes an 88-key keyboard view: AI finds the intro and the band entry, transcribes the notes and shows them as falling blocks — on a phone too.</p>
+          <p class="desc" data-fi="YouTube-linkki tai äänitiedosto muuttuu soitto-ohjeeksi pianolle: näet tulevat nuotit ja koskettimiston, voit hidastaa, loopittaa ja avata saman ohjeen puhelimella. Nyt myös Windows-asennuksena.">A YouTube link or audio file becomes a piano practice view: upcoming notes above an 88-key keyboard, with slowdown, looping and the same guide on your phone. Now also as a Windows installer.</p>
           <div class="shots" role="group" aria-label="Screenshots: PianoCapture">
             <button class="shot" type="button">
-              <img src="assets/tools/pianocapture/pc-view.png" width="1200" height="794" loading="lazy" decoding="async" alt="PianoCapture on desktop: falling note blocks above an 88-key keyboard, the sounding keys highlighted and named G2, D3 and C4">
+              <img src="assets/tools/pianocapture/pc-view.png" width="1200" height="720" loading="lazy" decoding="async" alt="PianoCapture on desktop: falling note blocks above an 88-key keyboard with the sounding keys highlighted, plus playback controls and the phone QR">
               <span class="cap" data-fi="Työpöytä">Desktop</span>
             </button>
-            <button class="shot tall" type="button">
-              <img src="assets/tools/pianocapture/android-view.png" width="611" height="1200" loading="lazy" decoding="async" alt="PianoCapture on an Android phone: the keyboard fitted to the used pitch range, falling notes and playback controls">
+            <button class="shot" type="button">
+              <img src="assets/tools/pianocapture/android-landscape.png" width="1200" height="604" loading="lazy" decoding="async" alt="PianoCapture on an Android phone in landscape: falling notes above the keyboard and the one-row playback controls">
               <span class="cap" data-fi="Android">Android</span>
             </button>
             <button class="shot" type="button">
-              <img src="assets/tools/pianocapture/generator.png" width="958" height="580" loading="lazy" decoding="async" alt="PianoCapture setup: a YouTube link, the suggested piano window and the KÄSITTELE PÄTKÄ button">
-              <span class="cap" data-fi="Lähteen rajaus">Source window</span>
+              <img src="assets/tools/pianocapture/win-installer.png" width="990" height="337" loading="lazy" decoding="async" alt="PianoCapture 1.06 Windows installer progressing; the app installs into the user profile">
+              <span class="cap" data-fi="Windows-asennus">Windows installer</span>
+            </button>
+            <button class="shot" type="button">
+              <img src="assets/tools/pianocapture/setup.png" width="1200" height="324" loading="lazy" decoding="async" alt="PianoCapture setup and library: a YouTube link or audio file, start and end times, the LUO SOITTO-OHJE button and saved guides">
+              <span class="cap" data-fi="Lähde ja kirjasto">Source &amp; library</span>
             </button>
           </div>
           <ul class="shows">
             <li data-fi="Piano-intro ja bändin sisääntulo tunnistetaan automaattisesti; ikkuna on aina muokattavissa.">Finds the piano intro and the band entry automatically; the window stays editable.</li>
             <li data-fi="Toistuva kuvio tunnistetaan ja sen voi loopittaa yhtenä kiertona (KIERTO).">Detects a repeating figure and loops it as one cycle (KIERTO).</li>
             <li data-fi="88 koskettimen näkymä, käsijako, nopeus 50–100 %, taustaääni päälle/pois ja MP3/MIDI-lataus.">88-key view, hand split, 50–100 % speed, backing on/off and MP3/MIDI download.</li>
-            <li data-fi="Puhelin tai tabletti toimii soittimen näyttönä sisäverkossa, avataan QR-koodilla.">A phone or tablet works as the viewer over the LAN, opened by QR.</li>
+            <li data-fi="Toimii myös Windows-asennuksena; puhelin tai tabletti avaa saman ohjeen QR-koodilla.">Also available as a Windows installer; a phone or tablet opens the same guide by QR.</li>
           </ul>
-          <ul class="chips"><li>FastAPI</li><li>Basic Pitch</li><li>Canvas</li><li>yt-dlp</li><li>pytest</li></ul>
+          <ul class="chips"><li>Windows</li><li>FastAPI</li><li>Basic Pitch</li><li>Canvas</li><li>yt-dlp</li><li>pytest</li></ul>
           <div class="actions">
+            <a class="btn small primary" href="https://github.com/teppoaland/tabtool/releases/tag/v1.06" target="_blank" rel="noopener" data-fi="Lataa Windows">Download for Windows</a>
             <a class="btn small" href="https://github.com/teppoaland/tabtool/tree/main/piano" target="_blank" rel="noopener" data-fi="Koodi">Code</a>
             <a class="btn small ghost" href="https://github.com/teppoaland/tabtool/blob/main/piano/README.md" target="_blank" rel="noopener">README</a>
             <button class="btn small ghost" type="button" data-copy="#pianocapture" aria-label="Copy link to this project">⧉</button>
@@ -1359,7 +1364,7 @@
             "Published browser games: GAME HUB (5 mini-games), AI CHAOS STREET, Pimeä Katu.",
             "Games run on PC, Mac, Android and iOS browsers — keyboard on desktop, touch on phones.",
             "Tools: FlowCast (info TV / media server + Android), AI TabTool (audio→MIDI, alphaTab),",
-            "PianoCapture (YouTube piano intro → 88-key view, cycle and phone viewer).",
+            "PianoCapture (YouTube/audio → 88-key piano practice view, Windows + phone viewer).",
             "QA PoCs: Test Radiator dashboard, Sebitti Sää (PoC + production), App Availability Check.",
             "",
             "Portfolio: https://teppoaland.github.io/introduction/",
@@ -1411,7 +1416,7 @@
             "Pelit toimivat PC-, Mac-, Android- ja iOS-selaimissa: näppäimistö työpöydällä,",
             "kosketusohjaimet puhelimessa — ei asennuksia.",
             "Hyötyohjelmat: FlowCast (info-TV/mediapalvelin + Android), AI TabTool (audio→MIDI, alphaTab),",
-            "PianoCapture (YouTube-piano-intro → 88 koskettinta, kierto ja puhelinnäkymä).",
+            "PianoCapture (YouTube/ääni → 88 koskettimen soitto-ohje, Windows + puhelin).",
             "QA-PoC:t: Test Radiator -dashboard, Sebitti Sää (PoC + tuotanto), App Availability Check.",
             "",
             "Portfolio: https://teppoaland.github.io/introduction/",
