@@ -25,7 +25,7 @@ assets/games/game-hub/          menu.jpg · blue-max-menu.jpg · blue-max-game.j
 assets/games/ai-chaos-street/   menu.jpg · street-night.jpg · closeup.jpg
                                 laser-shooting.jpg · morning-after.jpg
 assets/games/pimea-katu/        street.jpg · jukebox.jpg
-assets/tools/ai-tabtool/        pc-view.jpg · ad-generate.jpg · remote-play.jpg · remote-library.jpg
+assets/tools/ai-tabtool/        icon.png · pc-view.jpg · ad-generate.jpg · remote-play.jpg · remote-library.jpg
 assets/tools/flowcast/          admin-panel.png · display-pc.jpg · display-mobile.jpg · settings.jpg
 assets/tools/pianocapture/      icon.png · pc-view.png · android-landscape.png · win-installer.png · setup.png
 ```
